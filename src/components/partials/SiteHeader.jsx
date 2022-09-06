@@ -2,21 +2,36 @@ import {Link} from 'react-router-dom'
 
 function SiteHeader() {
 
-    return (
-        <nav className="navbar navbar-expand-lg bg-light">
-            <div className="container-fluid">
-            <figure class="mr-3">
-                {/* <img
-                    src="https://ibb.co/tLpfxm2"
-                 /> */}
-                 <figcaption>
-                    <a class="navbar-brand" href="#">Rent-Go-Where</a>
-                 </figcaption>
-            </figure>
+    return(
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">Rent-Go-Where</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Favourite</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Potential Housemate</a>
+              </li>
+            
+            </ul>
 
-    
-            </div>
-        </nav>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">Register</a>
+              </li>
+              <li className="nav-item my-2 my-lg-0">
+                <a className="nav-link active mr-sm-2" aria-current="page" href="#">Login</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
     )
 }
 
