@@ -3,6 +3,7 @@ import "./App.css";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import SiteHeader from './components/partials/SiteHeader';
+import Sidebar from './components/partials/Sidebar';
 import Homepage from './components/partials/PropertyGrid';
 
 
@@ -19,6 +20,7 @@ function App() {
   <div>
 
     <SiteHeader/>
+  
     
   </div>
 
