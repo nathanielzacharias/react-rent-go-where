@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 import React from "react";
 import { ToastContainer } from "react-toastify";
@@ -20,10 +21,9 @@ function App() {
   <div>
 
     <SiteHeader/>
-  
-    
-  </div>
+    <Sidebar/>
 
+  </div>
   
   )
 }

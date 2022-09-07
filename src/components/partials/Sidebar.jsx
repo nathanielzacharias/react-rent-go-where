@@ -1,29 +1,42 @@
+import React from 'react';
+import {
+  CDBSidebar,
+  CDBSidebarContent,
+  CDBSidebarFooter,
+  CDBSidebarHeader,
+  CDBSidebarMenu,
+  CDBSidebarMenuItem,
+} from 'cdbreact';
+import { NavLink } from 'react-router-dom';
 
+function Sidebar() {
+    return (
+      <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
+        <CDBSidebar textColor="#fff" backgroundColor="#333">
+          <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+          <div>Filter</div>
+              
+          </CDBSidebarHeader>
+  
+          <CDBSidebarFooter style={{ textAlign: 'left', padding: '20px 30px'}}>
 
-// function Sidebar() {
+            <div className="sidebar-btn-wrapper">
+              Location
+            </div>
 
-// return(
-// <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
-//             activeKey="/home"
-//             onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-//             >
-//                 <div className="sidebar-sticky"></div>
-//             <Nav.Item>
-//                 <Nav.Link href="/home">Active</Nav.Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//                 <Nav.Link eventKey="link-1">Link</Nav.Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//                 <Nav.Link eventKey="link-2">Link</Nav.Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//                 <Nav.Link eventKey="disabled" disabled>
-//                 Disabled
-//                 </Nav.Link>
-//             </Nav.Item>
-//             </Nav>
-//     )
-// }
+            <div className="sidebar-btn-wrapper">
+              Budget
+            </div>
 
-// export default Sidebar
+            <div className="sidebar-btn-wrapper">
+              Bedroom
+            </div>
+
+          </CDBSidebarFooter>
+        </CDBSidebar>
+      </div>
+    );
+  };
+  
+
+export default Sidebar;
