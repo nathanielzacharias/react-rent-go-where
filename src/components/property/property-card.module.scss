@@ -1,0 +1,14 @@
+.card-container {
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    display: flex;
+    &:hover {
+      color: red;
+    }
+  }
+  
+  .img {
+    height: 10em;
+  }
+ 
