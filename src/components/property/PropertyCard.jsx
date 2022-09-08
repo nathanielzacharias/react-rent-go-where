@@ -4,10 +4,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import styles from './property-card.module.scss'
 
 function PropertyCard(props) {
-    const { boards, _id, address, rooms, year, price, bathrooms, sqf_list } = props.data
+    const { boards, _id, address, rooms, year, price, bathrooms, sqf_list, images } = props.data
+
+    console.log(images);
+    console.log(rooms);
+
     return (
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+          <Card.Img variant="top" src={images[0]} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>
