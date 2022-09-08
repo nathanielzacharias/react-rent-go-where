@@ -1,10 +1,13 @@
 import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import SiteHeader from './components/partials/SiteHeader';
 import Sidebar from './components/partials/Sidebar';
-import Homepage from './components/partials/PropertyGrid';
+import PropertyGrid from './components/property/PropertyGrid'
+import PropertyCard from './components/property/PropertyCard'
+import Homepage from './components/homepage-container/Homepage';
 
 
 import { Button } from 'antd';
@@ -20,10 +23,9 @@ function App() {
   <div>
 
     <SiteHeader/>
-  
-    
-  </div>
+    <Homepage/>
 
+  </div>
   
   )
 }

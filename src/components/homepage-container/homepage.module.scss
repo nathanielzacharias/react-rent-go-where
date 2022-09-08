@@ -1,0 +1,22 @@
+.homepage-container {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    justify-content: left;
+}
+
+.sidebar-container {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    justify-content: left;
+}
+
+.property-container {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    justify-content: left;
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+}
