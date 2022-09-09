@@ -15,6 +15,8 @@ import { Pagination } from "antd";
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import Guest from "./components/auth/Guest";
+import Login from "./components/login/Login"
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
       </Routes>
 
     </div>
