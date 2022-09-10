@@ -32,7 +32,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <SignUp/>
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
         <Route path="/api/v1/auth/register" element={<SignUp />} />
