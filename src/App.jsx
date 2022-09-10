@@ -8,7 +8,7 @@ import Sidebar from './components/partials/Sidebar';
 import PropertyGrid from './components/property/PropertyGrid'
 import PropertyCard from './components/property/PropertyCard'
 import Homepage from './components/homepage-container/Homepage';
-
+import SignUp from './components/register/Register';
 
 import { Button } from 'antd';
 import { Pagination } from 'antd';
@@ -22,8 +22,7 @@ function App() {
   
   <div>
 
-    <SiteHeader/>
-    <Homepage/>
+    <SignUp/>
 
   </div>
   
