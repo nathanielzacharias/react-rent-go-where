@@ -19,7 +19,7 @@ function Login() {
     const handleSubmit = e => {
         e.preventDefault()
         
-        fetch(`http://localhost:8000/api/v1/users/login`, {
+        fetch(`http://localhost:8000/api/v1/auth/login`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -31,6 +31,7 @@ function Login() {
             })
             .then(jsonResponse => {
                 if (jsonResponse.error) {
+                    console.log(jsonResponse)
                     toast.error(jsonResponse.error)
                     return
                 }
@@ -43,6 +44,7 @@ function Login() {
                 navigate('/')
             })
             .catch(err => {
+                console.log(err.response)
                 toast.error(err.message)
             })
     }
