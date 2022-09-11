@@ -40,7 +40,7 @@ function SiteHeader() {
             {
             token ? (
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
                   UserName
                 </Dropdown.Toggle>
 
