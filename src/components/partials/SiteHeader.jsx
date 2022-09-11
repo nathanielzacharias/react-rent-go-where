@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function SiteHeader() {
   const token = localStorage.getItem("user_token");
@@ -38,11 +39,17 @@ function SiteHeader() {
 
             {
             token ? (
-              <li className="nav-link">
-                <Link to="/api/v1/profile">Profile</Link>
-              </li>
+              <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  UserName
+                </Dropdown.Toggle>
 
-            ) : (
+                <Dropdown.Menu>
+                  <Dropdown.Item><Link to="/api/v1/profile">Profile</Link></Dropdown.Item>
+                  <Dropdown.Item><Link to="/api/v1/">Logout</Link></Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              ) : (
               <>
                 <li className="nav-link">
                   <Link to="/api/v1/auth/register">Register</Link>

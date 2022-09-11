@@ -16,7 +16,9 @@ import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import Guest from "./components/auth/Guest";
+import Auth from "./components/auth/Auth";
 import Login from "./components/login/Login"
+import userProfile from "./components/userProfile/userProfile";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
+        <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
       </Routes>
 
     </div>
