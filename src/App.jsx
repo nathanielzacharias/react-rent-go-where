@@ -37,7 +37,10 @@ function App() {
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
         <Route path="/api/v1/auth/register" element={<SignUp />} />
         <Route path="/user/:userID" element={<Homepage />} />
+<<<<<<< HEAD
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
+=======
+>>>>>>> 24fb1ff (chore: tidy up listing page)
       </Routes>
 
     </div>
