@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
@@ -98,3 +99,14 @@ function UserProfile() {
 }
 
 export default UserProfile
+=======
+import React from 'react'
+
+function userProfile() {
+  return (
+    <div>userProfile</div>
+  )
+}
+
+export default userProfile
+>>>>>>> aa4dd89 (feat: added dropdown in header after user logged in)
