@@ -1,6 +1,9 @@
 import React, { useEffect, useState} from 'react'
 import PropertyCard from './PropertyCard'
 import styles from './property.module.scss'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function PropertyGrid(props){
 
@@ -20,11 +23,9 @@ function PropertyGrid(props){
       const propertyCards = properties.map((property) => (<PropertyCard key={property._id} data={property} />))
 
     return(
-        <div className={styles['properties-container']}>
-        <div className='d-flex flex-row justify-content-center'>
+      <Container fluid className='d-flex flex-row flex-wrap' style={{ margin:'5px 5px 5px 5px', padding:'5px'}}>
           { propertyCards }
-        </div>
-      </div>
+      </Container>
     )
 
 }

@@ -28,6 +28,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
         <Route path="/api/v1/auth/register" element={<SignUp />} />
+        <Route path="/user/:userID" element={<Homepage />} />
       </Routes>
 
     </div>

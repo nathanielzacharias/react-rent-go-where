@@ -1,4 +1,7 @@
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import styles from './property-card.module.scss'
@@ -10,7 +13,8 @@ function PropertyCard(props) {
     console.log(rooms);
 
     return (
-        <Card style={{ width: '18rem' }}>
+      <Col className='d-flex flex-row flex-wrap' >
+        <Card style={{ width: '20rem' }}>
           <Card.Img variant="top" src={images[0]} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
@@ -32,6 +36,8 @@ function PropertyCard(props) {
             <Card.Link href="#">Another Link</Card.Link>
           </Card.Body>
         </Card>
+      </Col>
+       
       );
     }
 
