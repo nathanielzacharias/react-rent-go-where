@@ -2,9 +2,12 @@ import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import { toast } from 'react-toastify'
+import jwt_decode from "jwt-decode";
 import { getConfirmLocale } from 'antd/lib/modal/locale'
 
 function UserProfile() {
+  const userObjId = jwt_decode(localStorage.getItem('user_token'))
+  console.log('userObjId', userObjId.data.objId)
   const navigate = useNavigate()
   const params = useParams()
   const [user, setUser] = useState(null)
@@ -67,21 +70,28 @@ function UserProfile() {
   }
 
   return (
-<div className='container'>
-
-      <form onSubmit={handleFormSubmit}>
-            <div className="mb-3">
-                <label htmlFor="userId" className="form-label">userId</label>
-                <input type="text" className="form-control" id="userId" name='userId' value={formData.userId} onChange={handleInputChange} />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="gender" className="form-label">gender</label>
-                <input type="text" className="form-control" id="gender" value={formData.gender} name='gender' onChange={handleInputChange} />
-            </div>
-           
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+<div className='profile-container'>
+  <div className='row'>
+    <div className="col-md-5 border-right">
+    {/*reserved for displaying photo if we wanna do it */}
     </div>
+    <div className="col-md-5 border-right">
+      <form onSubmit={handleFormSubmit}>
+        <div className="col-mb-3 border-right">
+          <label htmlFor="userId" className="form-label">userId</label>
+            <input type="text" className="form-control" id="userId" name='userId' value={formData.userId} onChange={handleInputChange} />
+        </div>
+        
+        <div className="mb-3">
+          <label htmlFor="gender" className="form-label">gender</label>
+          <input type="text" className="form-control" id="gender" value={formData.gender} name='gender' onChange={handleInputChange} />
+        </div>
+            
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>    
   );
 }
 
