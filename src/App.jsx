@@ -8,6 +8,7 @@ import Sidebar from "./components/partials/Sidebar";
 import PropertyGrid from "./components/property/PropertyGrid";
 import PropertyCard from "./components/property/PropertyCard";
 import Homepage from "./components/homepage-container/Homepage";
+import SignUp from './components/register/Register';
 
 import { Button } from "antd";
 import { Pagination } from "antd";
@@ -26,6 +27,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
+        <Route path="/api/v1/auth/register" element={<SignUp />} />
+        <Route path="/user/:userID" element={<Homepage />} />
       </Routes>
 
     </div>

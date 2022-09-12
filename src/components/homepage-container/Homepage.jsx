@@ -7,14 +7,14 @@ import styles from './homepage.module.scss'
 
 function Homepage(){
     return(
-        <Container className = {styles['homepage-container']}>
+        <Container fluid className = {styles['homepage-container']}>
         
-        <Row xs={4} className = {styles['homepage-container']}>
-          <Col className = {styles['sidebar-container']}>
+        <Row  className = {styles['homepage-container']}>
+          <Col sm={3} className = {styles['sidebar-container']}>
               <Sidebar/>
           </Col>
         
-          <Col  className = {styles['property-container']}>
+          <Col sm={9}>
               <PropertyGrid/>
           </Col>
         </Row>
