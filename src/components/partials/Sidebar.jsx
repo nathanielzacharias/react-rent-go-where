@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -9,7 +9,52 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
+import { Slider } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+
+const bedroomsMenu = (
+  <Menu
+    items={[
+      {
+        label: '1 bedroom',
+        key: '1',
+      },
+      {
+        label: '2 bedrooms',
+        key: '2',
+      },
+      {
+        label: '3 bedrooms',
+        key: '3',
+      },
+      {
+        label: '4 bedrooms',
+        key: '4',
+      },
+      {
+        label: '5 bedrooms',
+        key: '5',
+      },
+      {
+        label: '6 or more bedrooms',
+        key: '6',
+      },
+    ]}
+  />
+);
+
+
+
 function Sidebar() {
+
+  
+  const onBudgetSliderAfterChange = (value) => {
+    console.log('onBudgetSliderAfterChange: ', value);
+  };
+
+
+
     return (
       <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
         <CDBSidebar textColor="#fff" backgroundColor="RGB(33 37 41)">
@@ -21,15 +66,29 @@ function Sidebar() {
           <CDBSidebarFooter style={{ textAlign: 'left', padding: '20px 30px'}}>
 
             <div className="sidebar-btn-wrapper">
-              Location
+              <p>
+                Location
+              </p>
             </div>
 
             <div className="sidebar-btn-wrapper">
-              Budget
+              <p>
+                Budget
+              </p>
+
+              <Slider
+                range
+                step={10}
+                tooltip={{ open: true }}
+                defaultValue={[600, 1000]}
+                onAfterChange={onBudgetSliderAfterChange}
+              />
             </div>
 
             <div className="sidebar-btn-wrapper">
-              Bedroom
+              <Dropdown.Button type="secondary"  overlay={bedroomsMenu}>
+                Bedrooms
+              </Dropdown.Button>
             </div>
 
           </CDBSidebarFooter>
