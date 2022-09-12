@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import SiteHeader from "./components/partials/SiteHeader";
 import Sidebar from "./components/partials/Sidebar";
@@ -22,8 +22,11 @@ import Login from "./components/login/Login"
 import userProfile from "./components/userProfile/userProfile";
 
 function App() {
+  // const [login, setLogin] = useState(0);
+
   return (
     <div>
+      {/* <SiteHeader props = {setLogin} /> */}
       <SiteHeader />
 
       <Routes>
