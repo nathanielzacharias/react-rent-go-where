@@ -13,6 +13,7 @@ import SignUp from './components/register/Register';
 import { Button } from "antd";
 import { Pagination } from "antd";
 
+
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";

@@ -9,7 +9,18 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
+import { Slider } from 'antd';
+
+
 function Sidebar() {
+
+  
+  const onBudgetSliderAfterChange = (value) => {
+    console.log('onBudgetSliderAfterChange: ', value);
+  };
+
+
+
     return (
       <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
         <CDBSidebar textColor="#fff" backgroundColor="RGB(33 37 41)">
@@ -21,15 +32,29 @@ function Sidebar() {
           <CDBSidebarFooter style={{ textAlign: 'left', padding: '20px 30px'}}>
 
             <div className="sidebar-btn-wrapper">
-              Location
+              <p>
+                Location
+              </p>
             </div>
 
             <div className="sidebar-btn-wrapper">
-              Budget
+              <p>
+                Budget
+              </p>
+
+              <Slider
+                range
+                step={10}
+                tooltip={{ open: true }}
+                defaultValue={[600, 1000]}
+                onAfterChange={onBudgetSliderAfterChange}
+              />
             </div>
 
             <div className="sidebar-btn-wrapper">
-              Bedroom
+              <p>
+                Bedroom
+              </p>
             </div>
 
           </CDBSidebarFooter>
