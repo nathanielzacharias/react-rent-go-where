@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 
-function SiteHeader() {
+function SiteHeader({props}) {
 
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
@@ -25,7 +25,9 @@ function SiteHeader() {
                 <a className="nav-link active" aria-current="page" href="#">Register</a>
               </li>
               <li className="nav-item my-2 my-lg-0">
-                <a className="nav-link active mr-sm-2" aria-current="page" href="#">Login</a>
+
+                <Link to="/api/v1/auth/login" className="nav-link active mr-sm-2" aria-current="page" >Login</Link>
+
               </li>
             </ul>
             
