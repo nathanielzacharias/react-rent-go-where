@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -10,6 +10,40 @@ import {
 import { NavLink } from 'react-router-dom';
 
 import { Slider } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+
+const bedroomsMenu = (
+  <Menu
+    items={[
+      {
+        label: '1 bedroom',
+        key: '1',
+      },
+      {
+        label: '2 bedrooms',
+        key: '2',
+      },
+      {
+        label: '3 bedrooms',
+        key: '3',
+      },
+      {
+        label: '4 bedrooms',
+        key: '4',
+      },
+      {
+        label: '5 bedrooms',
+        key: '5',
+      },
+      {
+        label: '6 or more bedrooms',
+        key: '6',
+      },
+    ]}
+  />
+);
+
 
 
 function Sidebar() {
@@ -52,9 +86,9 @@ function Sidebar() {
             </div>
 
             <div className="sidebar-btn-wrapper">
-              <p>
-                Bedroom
-              </p>
+              <Dropdown.Button type="secondary"  overlay={bedroomsMenu}>
+                Bedrooms
+              </Dropdown.Button>
             </div>
 
           </CDBSidebarFooter>
