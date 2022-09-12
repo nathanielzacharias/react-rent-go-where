@@ -17,17 +17,14 @@ function SiteHeader({props}) {
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">Potential Housemate</a>
               </li>
-            
             </ul>
 
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Register</a>
+                <Link to="/api/v1/auth/register" className="nav-link active" aria-current="page">Register</Link>
               </li>
               <li className="nav-item my-2 my-lg-0">
-
                 <Link to="/api/v1/auth/login" className="nav-link active mr-sm-2" aria-current="page" >Login</Link>
-
               </li>
             </ul>
             
