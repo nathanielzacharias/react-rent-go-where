@@ -33,10 +33,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
+
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
         <Route path="/api/v1/auth/register" element={<SignUp />} />
         <Route path="/user/:userID" element={<Homepage />} />
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
+
       </Routes>
 
     </div>

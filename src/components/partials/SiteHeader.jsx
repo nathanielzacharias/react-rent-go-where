@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 
+
 function SiteHeader() {
   const token = localStorage.getItem("user_token");
 
@@ -40,11 +41,9 @@ function SiteHeader() {
             {
             token ? (
               <Dropdown>
-<<<<<<< HEAD
-                <Dropdown.Toggle variant="dark" id="dropdown-basic">
-=======
+
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
->>>>>>> aa4dd89 (feat: added dropdown in header after user logged in)
+
                   UserName
                 </Dropdown.Toggle>
 
