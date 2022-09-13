@@ -5,16 +5,19 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import styles from './property-card.module.scss'
+import { Link } from 'react-router-dom'
 
 function PropertyCard(props) {
+ 
     const { boards, _id, address, rooms, year, price, bathrooms, sqf_list, images } = props.data
 
     console.log(images);
     console.log(rooms);
 
     return (
-      <Col className='d-flex flex-row flex-wrap' >
-        <Card style={{ width: '20rem' }}>
+      <Col className='d-flex flex-row flex-wrap' style={{ margin:'10px auto'}} >
+        <Link to={`/api/v1/app/show_properties/${_id}`}>
+        <Card style={{ width: '25rem', cursor:"pointer" }}>
           <Card.Img variant="top" src={images[0]} />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
@@ -36,6 +39,7 @@ function PropertyCard(props) {
             <Card.Link href="#">Another Link</Card.Link>
           </Card.Body>
         </Card>
+        </Link>
       </Col>
        
       );

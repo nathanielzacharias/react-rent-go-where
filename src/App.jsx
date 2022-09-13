@@ -7,6 +7,7 @@ import SiteHeader from "./components/partials/SiteHeader";
 import Sidebar from "./components/partials/Sidebar";
 import PropertyGrid from "./components/property/PropertyGrid";
 import PropertyCard from "./components/property/PropertyCard";
+import IndividualPropertyCard from "./components/property/IndividualPropertyCard";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from './components/register/Register';
 
@@ -32,6 +33,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/api/v1/app/show_properties/:propID" element={<IndividualPropertyCard />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
 
         <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />

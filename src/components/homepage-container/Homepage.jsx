@@ -10,11 +10,11 @@ function Homepage(){
         <Container fluid className = {styles['homepage-container']}>
         
         <Row  className = {styles['homepage-container']}>
-          <Col sm={3} className = {styles['sidebar-container']}>
+          <Col sm={2} className = {styles['sidebar-container']}>
               <Sidebar/>
           </Col>
         
-          <Col sm={9}>
+          <Col sm={10}>
               <PropertyGrid/>
           </Col>
         </Row>
