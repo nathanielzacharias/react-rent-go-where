@@ -23,7 +23,7 @@ function PropertyGrid(props){
       const propertyCards = properties.map((property) => (<PropertyCard key={property._id} data={property} />))
 
     return(
-      <Container fluid className='d-flex flex-row flex-wrap' style={{ margin:'5px 5px 5px 5px', padding:'5px'}}>
+      <Container fluid className='d-flex flex-row flex-wrap' style={{ margin:'5px 5px 5px 5px', padding:'5px 5px'}}>
           { propertyCards }
       </Container>
     )
