@@ -44,16 +44,11 @@ const bedroomsMenu = (
   />
 );
 
-
-
 function Sidebar() {
 
-  
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
   };
-
-
 
     return (
       <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>

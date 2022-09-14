@@ -63,7 +63,7 @@ function Login() {
             })
             .then(jsonResponse => {
                 if (jsonResponse.error) {
-                    console.log(jsonResponse)
+                    console.log('jsonResponse',jsonResponse)
                     toast.error(jsonResponse.error)
                     return
                 }
