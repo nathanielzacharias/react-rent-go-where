@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useNavigate } from 'react-router-dom'
 
+function logoutHandler(e) {
+  e.preventDefault()
+  localStorage.removeItem('user_token')
+}
 
 function SiteHeader() {
   const token = localStorage.getItem("user_token");
@@ -51,9 +56,13 @@ function SiteHeader() {
                   UserName
                 </Dropdown.Toggle>
 
+                
+        
+            
+
                 <Dropdown.Menu>
                   <Dropdown.Item><Link to="/api/v1/profile">Profile</Link></Dropdown.Item>
-                  <Dropdown.Item><Link to="/api/v1/">Logout</Link></Dropdown.Item>
+                  <Dropdown.Item><a onClick={logoutHandler}><Link to="/">Logout</Link></a></Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               ) : (
