@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
 function logoutHandler(e) {
@@ -7,7 +8,9 @@ function logoutHandler(e) {
   localStorage.removeItem('user_token')
 }
 
+
 function SiteHeader() {
+  const navigate = useNavigate()
   const token = localStorage.getItem("user_token");
 
   return (
