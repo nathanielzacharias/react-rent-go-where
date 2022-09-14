@@ -46,13 +46,7 @@ function SiteHeader() {
             {
             token ? (
               <Dropdown>
-<<<<<<< HEAD
-
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-
-=======
                 <Dropdown.Toggle variant="dark" id="dropdown-basic">
->>>>>>> b584334 (chore: fix conflict 3rd time)
                   UserName
                 </Dropdown.Toggle>
 
