@@ -8,10 +8,13 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import styles from './property-card.module.scss'
 import ControlledCarousel from './PropertyImage';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
 
 function PropertyDetail(props) {
    
-    const {_id,address,year,price,bathrooms,boards,images} = props.data
+    const {_id,address,year,price,rooms,bathrooms,boards,images} = props.data
 
 
     return (
@@ -19,16 +22,34 @@ function PropertyDetail(props) {
         <Container>
         
             <Row>
-           
 
-                  <h1>
+                  <h2 style={{ margin:'20px 0px 0px 0px'}}>
                     {address}
-                  </h1>
+                  </h2>
 
+                  <h6 style={{ margin:'0px 0px 20px 0px'}}>
+                    {year}
+                  </h6>
                   
                   <div>
                     <ControlledCarousel image={images}/>
                   </div>
+                  
+                  <h3 style={{ margin:'20px auto'}}>
+                    {price}
+                  </h3>
+
+                  <h4>
+                    <i class="fa fa-bed" aria-hidden="true" style={{margin:'5px 10px 0px 0px'}}></i>
+                    {rooms}
+                  </h4>
+
+                  <h4>
+                    <i class="fa fa-bath" aria-hidden="true" style={{margin:'5px 10px 0px 0px'}}></i>
+                    {bathrooms}
+                  </h4>
+
+               
                
             </Row>
 

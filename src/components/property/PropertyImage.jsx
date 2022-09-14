@@ -10,13 +10,13 @@ function ControlledCarousel(prop) {
   console.log(prop.image)
   return (
    
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel activeIndex={index} onSelect={handleSelect} style={{ width:'850px'}}>
             {
                 prop.image.map((img,index) => (
                     <Carousel.Item key={index} >
                     <img
                     className="d-block w-100"
-                    src={img}
+                    src={img} 
                     />
                     </Carousel.Item>
                 ) )

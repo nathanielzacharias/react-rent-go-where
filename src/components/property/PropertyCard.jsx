@@ -11,9 +11,6 @@ function PropertyCard(props) {
  
     const { boards, _id, address, rooms, year, price, bathrooms, sqf_list, images } = props.data
 
-    console.log(images);
-    console.log(rooms);
-
     return (
       <Col className='d-flex flex-row flex-wrap' style={{ margin:'10px auto'}} >
         <Link to={`/api/v1/app/show_properties/${_id}`}>
