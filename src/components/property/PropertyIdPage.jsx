@@ -9,7 +9,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import styles from "./property-card.module.scss";
 import PropertyDetail from "./PropertyDetail";
 
-function IndividualPropertyCard(props) {
+function PropertyIdPage(props) {
   const params = useParams();
   const [propertyData, setPropertyData] = useState(null);
   const [propertyAddress, setPropertyAddress] = useState([]);
@@ -35,4 +35,4 @@ function IndividualPropertyCard(props) {
   return propertyData ? <PropertyDetail data={propertyData} /> : "";
 }
 
-export default IndividualPropertyCard;
+export default PropertyIdPage;

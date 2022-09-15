@@ -3,7 +3,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import SiteHeader from "./components/partials/SiteHeader";
-import IndividualPropertyCard from "./components/property/IndividualPropertyCard";
+import PropertyIdPage from "./components/property/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from "./components/register/Register";
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route
           path="/api/v1/app/show_properties/:propID"
-          element={<IndividualPropertyCard />}
+          element={<PropertyIdPage />}
         />
         <Route
           path="/api/v1/auth/login"
