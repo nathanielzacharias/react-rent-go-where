@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import {Button, Form} from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import jwt_decode from "jwt-decode";
-import { getConfirmLocale } from 'antd/lib/modal/locale'
+import userDetails from './userDetails';
+
 
 function UserProfile() {
   const userObjId = jwt_decode(localStorage.getItem('user_token'))
@@ -56,15 +56,10 @@ function UserProfile() {
         },
     })
         .then(response => {
-
             return response.json()
         })
         .then(jsonResponse => {
-          // displaying success message
           toast.success("Edit user data successful")
-          console.log('edit user successful')
-          // redirect to animals listing page
-         // navigate('/')
         })
         .catch(err => {
           toast.error(err.message)
@@ -72,7 +67,9 @@ function UserProfile() {
   }
 
   return (
+    
 <div className='profile-container'>
+  
   <div className='row'>
     <div className="col-md-5 border-right">
     {/*reserved for displaying photo if we wanna do it */}
@@ -88,13 +85,14 @@ function UserProfile() {
           <label htmlFor="gender" className="form-label">gender</label>
           <input type="text" className="form-control" id="gender" value={formData.gender} name='gender' onChange={handleInputChange} />
         </div>
-            
+        <userDetails />
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
 </div>    
   );
+ 
 }
 
 export default UserProfile
