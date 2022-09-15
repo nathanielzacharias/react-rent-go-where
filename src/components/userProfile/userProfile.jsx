@@ -8,24 +8,24 @@ import userDetails from './userDetails';
 function UserProfile() {
   const userObjId = jwt_decode(localStorage.getItem('user_token'))
   console.log(userObjId.data.objId)
-  const navigate = useNavigate()
-  const params = useParams()
+  // const navigate = useNavigate()
+  // const params = useParams()
   const [user, setUser] = useState(null)
   const [formData, setFormData] = useState({
     userId: `${userObjId}`,
     gender: '',
   })
 
-  useEffect(() => {
-    const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/update`)
-      const data = await res.json()
-      setUser(data)
-      setFormData(data)
-    }
+  // useEffect(() => {
+  //   const fetchApi = async () => {
+  //     const res = await fetch(`http://localhost:8000/api/v1/profile/update`)
+  //     const data = await res.json()
+  //     setUser(data)
+  //     setFormData(data)
+  //   }
 
-    fetchApi()
-  }, [params])
+  //   fetchApi()
+  // }, [params])
 
   function handleInputChange(e) {
     setFormData({
