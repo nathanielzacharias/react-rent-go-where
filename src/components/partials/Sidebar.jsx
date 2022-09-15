@@ -18,41 +18,41 @@ function setBedroomsInApp (e, setNumBedrooms) {
   setNumBedrooms(e.target.value)
 }
 
-function bedroomsMenu (setNumBedrooms) {
+function bedroomsMenu (props) {
   <Menu
     items={[
       {
         key: '1',
         label: 
-          <div value='1' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='1' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             1 bedroom
           </div>
       },
       {
         key: '2',
         label: 
-          <div value='2' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='2' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             2 bedrooms
           </div>
       },
       {
         key: '3',
         label: 
-          <div value='3' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='3' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             3 bedrooms
           </div>
       },
       {
         key: '4',
         label:
-          <div value='4' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='4' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             4 bedrooms
           </div>
       },
       {
         key: '5',
         label: 
-          <div value='5' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='5' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             5 bedrooms
           </div>
 
@@ -60,7 +60,7 @@ function bedroomsMenu (setNumBedrooms) {
       {
         key: '6',
         label:
-          <div value='6' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+          <div value='6' onClick={setBedroomsInApp(React.MouseEventHandler, props.setNumBedrooms)}>
             6 or more bedrooms
           </div>
       },
@@ -68,7 +68,7 @@ function bedroomsMenu (setNumBedrooms) {
   />
   };
 
-function Sidebar({ setNumBedrooms }) {
+function Sidebar(props) {
 
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
@@ -105,7 +105,7 @@ function Sidebar({ setNumBedrooms }) {
             </div>
 
             <div className="sidebar-btn-wrapper">
-              <Dropdown.Button type="secondary"  overlay={bedroomsMenu(setNumBedrooms)} >
+              <Dropdown.Button type="secondary"  overlay={bedroomsMenu(props)} >
                 Bedrooms
               </Dropdown.Button>
             </div>
