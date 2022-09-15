@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import jwt_decode from "jwt-decode";
 import userDetails from './userDetails';
+import { PanoramaSharp } from '@mui/icons-material';
 
 
 function UserProfile() {
@@ -13,33 +14,16 @@ function UserProfile() {
   const [user, setUser] = useState(null)
   const [formData, setFormData] = useState({
     userId: `${userObjId}`,
-    gender: '',
+    followedProperties: '',
   })
 
-  // useEffect(() => {
-  //   const fetchApi = async () => {
-  //     const res = await fetch(`http://localhost:8000/api/v1/profile/update`)
-  //     const data = await res.json()
-  //     setUser(data)
-  //     setFormData(data)
-  //   }
-
-  //   fetchApi()
-  // }, [params])
 
   function handleInputChange(e) {
     setFormData({
         // ...formData ->
         userId: userObjId.data.objId,
-        gender: e.target.value,
-        // breed: 'asdasd'
-        // ...formData,
-        // [e.target.name]: e.target.value,
-  
-
+        followedProperties: e.target.value,
     })
-
-    // setFormData({name: 'asdasd', gender: 'asdasd', breed: 'asdasd',    gender: 'someSpecies'})
   }
 
   function handleFormSubmit(e) {
@@ -82,8 +66,8 @@ function UserProfile() {
         {/* </div> */}
         
         <div className="mb-3">
-          <label htmlFor="gender" className="form-label">gender</label>
-          <input type="text" className="form-control" id="gender" value={formData.gender} name='gender' onChange={handleInputChange} />
+          <label htmlFor="followedProperties" className="form-label">gender</label>
+          <input type="text" className="form-control" id="followedProperties" value={formData.followedProperties} name='followedProperties' onChange={handleInputChange} />
         </div>
         <userDetails />
         <button type="submit" className="btn btn-primary">Submit</button>
