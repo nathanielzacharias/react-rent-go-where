@@ -3,8 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import ControlledCarousel from "./PropertyImage";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 
 function PropertyDetail(props) {
   const { _id, address, year, price, rooms, bathrooms, boards, images } =

@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import styles from "./property-card.module.scss";
 import PropertyDetail from "./PropertyDetail";
 
 function PropertyIdPage(props) {
   const params = useParams();
   const [propertyData, setPropertyData] = useState(null);
-  const [propertyAddress, setPropertyAddress] = useState([]);
 
   useEffect(() => {
     const fetchApi = async () => {
