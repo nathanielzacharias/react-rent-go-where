@@ -22,16 +22,25 @@ function bedroomsMenu (setNumBedrooms) {
   <Menu
     items={[
       {
-        label: '1 bedroom',
         key: '1',
+        label: 
+          <div value='1' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            1 bedroom
+          </div>
       },
       {
-        label: '2 bedrooms',
         key: '2',
+        label: 
+          <div value='2' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            2 bedrooms
+          </div>
       },
       {
-        label: '3 bedrooms',
         key: '3',
+        label: 
+          <div value='3' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            3 bedrooms
+          </div>
       },
       {
         key: '4',
@@ -41,12 +50,19 @@ function bedroomsMenu (setNumBedrooms) {
           </div>
       },
       {
-        label: '5 bedrooms',
         key: '5',
+        label: 
+          <div value='5' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            5 bedrooms
+          </div>
+
       },
       {
-        label: '6 or more bedrooms',
         key: '6',
+        label:
+          <div value='6' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            6 or more bedrooms
+          </div>
       },
     ]}
   />
