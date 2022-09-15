@@ -3,7 +3,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import SiteHeader from "./components/partials/SiteHeader";
-import PropertyIdPage from "./components/property/PropertyIdPage";
+import PropertyIdPage from "./components/property-id-page/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from "./components/register/Register";
 
