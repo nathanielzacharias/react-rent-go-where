@@ -13,7 +13,12 @@ import { Slider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 
-const bedroomsMenu = (
+function setBedroomsInApp (e, setNumBedrooms) {
+  e.preventDefault()
+  setNumBedrooms(e.target.value)
+}
+
+function bedroomsMenu (setNumBedrooms) {
   <Menu
     items={[
       {
@@ -29,8 +34,11 @@ const bedroomsMenu = (
         key: '3',
       },
       {
-        label: '4 bedrooms',
         key: '4',
+        label:
+          <div value='4' onClick={setBedroomsInApp(React.MouseEventHandler, setNumBedrooms)}>
+            4 bedrooms
+          </div>
       },
       {
         label: '5 bedrooms',
@@ -42,18 +50,13 @@ const bedroomsMenu = (
       },
     ]}
   />
-);
+  };
 
+function Sidebar({ setNumBedrooms }) {
 
-
-function Sidebar() {
-
-  
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
   };
-
-
 
     return (
       <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
@@ -86,7 +89,7 @@ function Sidebar() {
             </div>
 
             <div className="sidebar-btn-wrapper">
-              <Dropdown.Button type="secondary"  overlay={bedroomsMenu}>
+              <Dropdown.Button type="secondary"  overlay={bedroomsMenu(setNumBedrooms)} >
                 Bedrooms
               </Dropdown.Button>
             </div>

@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function PropertyGrid(props){
+function PropertyGrid({ bedrooms }){
 
     const [properties, setProperties] = useState([])
 
@@ -20,7 +20,14 @@ function PropertyGrid(props){
         fetchApi()
       }, [])
 
-      const propertyCards = properties.map((property) => (<PropertyCard key={property._id} data={property} />))
+      const propertyCards = properties.map((property) => 
+        {
+          //filtering by num of rooms
+          const numRooms = property.rooms.split(' ')[0]
+          if (bedrooms === null)          {( <PropertyCard key={property._id} data={property} /> )}
+          else if (numRooms === bedrooms) {( <PropertyCard key={property._id} data={property} /> )}
+        }
+        )
 
     return(
       <Container fluid className='d-flex flex-row flex-wrap' style={{ margin:'5px 5px 5px 5px', padding:'5px 5px'}}>
