@@ -16,16 +16,29 @@ import Auth from "./components/auth/Auth";
 import Login from "./components/login/Login";
 import userProfile from "./components/userProfile/userProfile";
 
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import styles from './components/homepage-container/homepage.module.scss'
+
+
+
 function App() {
-  // const [login, setLogin] = useState(0);
+  const [numBedrooms, setNumBedrooms] = useState('showAll');
 
   return (
     <div>
-      {/* <SiteHeader props = {setLogin} /> */}
       <SiteHeader />
 
-      <Routes>
-        <Route path="/" element={<Homepage />} />
+
+      <Row className={styles["homepage-container"]}>
+
+      <Col sm={2} className = {styles['sidebar-container']}>
+        <Sidebar setNumBedrooms={setNumBedrooms}/>
+      </Col>
+
+      <Col sm={10}>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
         <Route
           path="/api/v1/auth/login"
           element={<Guest component={Login} />}
@@ -44,7 +57,14 @@ function App() {
           path="/api/v1/board/show_properties"
           element={<PropertyBoard />}
         />
-      </Routes>
+
+        </Routes>
+      </Col>
+
+      </Row>
+
+
+
     </div>
   );
 }

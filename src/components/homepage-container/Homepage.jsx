@@ -5,13 +5,16 @@ import PropertyGrid from "../property/PropertyGrid";
 import Sidebar from "../partials/Sidebar";
 import styles from "./homepage.module.scss";
 
-function Homepage() {
-  return (
-    <Container fluid className={styles["homepage-container"]}>
-      <Row className={styles["homepage-container"]}>
-        <Col sm={2} className={styles["sidebar-container"]}>
-          <Sidebar />
-        </Col>
+function Homepage(props){
+    return(
+        <Container fluid className = {styles['homepage-container']}>
+
+
+        
+          <Col sm={10}>
+              <PropertyGrid numBedrooms={props.numBedrooms}/>
+          </Col>
+
 
         <Col sm={10}>
           <PropertyGrid />
