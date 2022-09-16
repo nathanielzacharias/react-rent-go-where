@@ -29,7 +29,7 @@ import styles from './components/homepage-container/homepage.module.scss'
 
 
 function App() {
-  const [numBedrooms, setNumBedrooms] = useState(null);
+  const [numBedrooms, setNumBedrooms] = useState('showAll');
 
   return (
     <div>

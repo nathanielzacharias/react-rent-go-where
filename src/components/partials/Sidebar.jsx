@@ -30,6 +30,8 @@ function Sidebar(props) {
       <Menu.Item key='4'>4 bedrooms</Menu.Item>
       <Menu.Item key='5'>5 bedrooms</Menu.Item>
       <Menu.Item key='6'>6 bedrooms</Menu.Item>
+      <Menu.Item key='showAll'>No filter</Menu.Item>
+
     </Menu>
   );
 
@@ -41,7 +43,7 @@ function Sidebar(props) {
 
 
     return (
-      
+
       <div style={{ 
         display: 'flex', 
         height: '100%', 
