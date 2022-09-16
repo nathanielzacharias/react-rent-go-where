@@ -6,6 +6,7 @@ import SiteHeader from "./components/partials/SiteHeader";
 import PropertyIdPage from "./components/property-id-page/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from "./components/register/Register";
+import PropertyBoard from "./components/dashboard/PropertyBoard";
 
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,6 +29,7 @@ function App() {
     <div>
       <SiteHeader />
 
+
       <Row className={styles["homepage-container"]}>
 
       <Col sm={2} className = {styles['sidebar-container']}>
@@ -36,24 +38,31 @@ function App() {
 
       <Col sm={10}>
         <Routes>
-          <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
-
-          <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
-
-         
-          <Route path="/api/v1/auth/register" element={<SignUp />} />
-          <Route path="/user/:userID" element={<Homepage />} />
-          <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
-          
-          <Route
+          <Route path="/" element={<Homepage />} />
+        <Route
+          path="/api/v1/auth/login"
+          element={<Guest component={Login} />}
+        />
+        <Route
+          path="/api/v1/profile"
+          element={<Auth component={userProfile} />}
+        />
+        <Route path="/api/v1/auth/register" element={<SignUp />} />
+        <Route path="/user/:userID" element={<Homepage />} />
+        <Route
           path="/api/v1/app/show_properties/:propID"
           element={<PropertyIdPage />}
+        />
+        <Route
+          path="/api/v1/board/show_properties"
+          element={<PropertyBoard />}
         />
 
         </Routes>
       </Col>
 
       </Row>
+
 
 
     </div>
