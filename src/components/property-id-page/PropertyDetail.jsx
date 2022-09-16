@@ -3,10 +3,68 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import ControlledCarousel from "./PropertyImage";
+import jwt_decode from "jwt-decode";
+import { useParams } from "react-router-dom";
 
 function PropertyDetail(props) {
   const { _id, address, year, price, rooms, bathrooms, boards, images } =
     props.data;
+
+  const userObjId = jwt_decode(localStorage.getItem("user_token"));
+
+  console.log(userObjId.data.objId);
+
+  const params = useParams();
+  const propertyID = params.propID;
+  console.log(propertyID);
+  console.log("this is line 20");
+
+  const [formData, setFormData] = useState({
+    userId: ``,
+    followedProperties: null,
+  });
+
+  console.log(formData);
+
+  // useEffect(() => {
+  //   const fetchApi = async () => {
+  //     const res = await fetch(`http://localhost:8000/api/v1/profile/update`);
+  //     const data = await res.json();
+  //   };
+
+  //   fetchApi();
+  // }, []);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await fetch(`http://localhost:8000/api/v1/profile/update`);
+      setFormData({
+        userId: userObjId.data.objId,
+        followedProperties: propertyID,
+      });
+    };
+
+    fetchApi();
+  }, []);
+
+  function addToFavourite(event) {
+    fetch(`http://localhost:8000/api/v1/profile/update`, {
+      method: "PATCH",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonResponse) => {
+        console.log("edit user successful");
+      })
+      .catch((err) => {
+        console.log("err message");
+      });
+  }
 
   return (
     <Container>
@@ -18,6 +76,7 @@ function PropertyDetail(props) {
         </div>
 
         <Button
+          onClick={addToFavourite}
           variant="primary"
           style={{ width: "40px", margin: "20px 10px 0px 10px" }}
         >

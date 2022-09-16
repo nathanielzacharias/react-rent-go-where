@@ -7,7 +7,7 @@ function ControlledCarousel(prop) {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-  console.log(prop.image);
+
   return (
     <Carousel
       activeIndex={index}
