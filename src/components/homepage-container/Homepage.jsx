@@ -5,17 +5,21 @@ import PropertyGrid from '../property/PropertyGrid'
 import Sidebar from '../partials/Sidebar';
 import styles from './homepage.module.scss'
 
-function Homepage(){
+function Homepage(props){
     return(
         <Container fluid className = {styles['homepage-container']}>
         
         <Row  className = {styles['homepage-container']}>
-          <Col sm={2} className = {styles['sidebar-container']}>
-              <Sidebar/>
+          {/* <Col sm={2} className = {styles['sidebar-container']}>
+              <Sidebar setNumBedrooms={props.setNumBedrooms}/>
+          </Col> */}
+
+          <Col>
+          <div></div>
           </Col>
         
           <Col sm={10}>
-              <PropertyGrid/>
+              <PropertyGrid numBedrooms={props.numBedrooms}/>
           </Col>
         </Row>
 

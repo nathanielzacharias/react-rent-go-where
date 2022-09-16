@@ -23,16 +23,24 @@ import Auth from "./components/auth/Auth";
 import Login from "./components/login/Login"
 import userProfile from "./components/userProfile/userProfile";
 
+import Col from 'react-bootstrap/Col';
+import styles from './components/homepage-container/homepage.module.scss'
+
+
+
 function App() {
-  // const [login, setLogin] = useState(0);
+  const [numBedrooms, setNumBedrooms] = useState(null);
 
   return (
     <div>
-      {/* <SiteHeader props = {setLogin} /> */}
       <SiteHeader />
 
+      <Col sm={2} className = {styles['sidebar-container']}>
+        <Sidebar setNumBedrooms={setNumBedrooms}/>
+      </Col>
+
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
         <Route path="/api/v1/app/show_properties/:propID" element={<IndividualPropertyCard />} />
         <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
 
