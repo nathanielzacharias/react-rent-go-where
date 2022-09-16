@@ -15,6 +15,7 @@ import { Dropdown, Menu, Space } from 'antd';
 
 
 
+
 function Sidebar(props) {
   
   function handleClick(item) {
@@ -35,12 +36,11 @@ function Sidebar(props) {
     </Menu>
   );
 
-  
+
+
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
   };
-
-
 
     return (
 

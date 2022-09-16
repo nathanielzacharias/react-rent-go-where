@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropertyCard from "./PropertyCard";
+
 import styles from "./property.module.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -63,6 +64,7 @@ function PropertyGrid(props) {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
+
       {properties ? (
         filteredPropertyCards
       ) : (
@@ -70,6 +72,7 @@ function PropertyGrid(props) {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
+
     </Container>
   );
 }
