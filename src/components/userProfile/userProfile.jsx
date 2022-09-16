@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
@@ -38,6 +39,7 @@ function UserProfile() {
     });
 
     // setFormData({name: 'asdasd', gender: 'asdasd', breed: 'asdasd',    gender: 'someSpecies'})
+
   }
 
   function handleFormSubmit(e) {
@@ -53,6 +55,7 @@ function UserProfile() {
         "Content-type": "application/json",
       },
     })
+
       .then((response) => {
         return response.json();
       })
@@ -101,8 +104,10 @@ function UserProfile() {
           </form>
         </div>
       </div>
+
     </div>
   );
+ 
 }
 
 export default UserProfile;

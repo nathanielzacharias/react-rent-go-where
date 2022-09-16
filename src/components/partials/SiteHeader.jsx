@@ -9,6 +9,7 @@ function logoutHandler(e) {
 }
 
 function SiteHeader() {
+  const navigate = useNavigate();
   const token = localStorage.getItem("user_token");
   const userId = jwt_decode(token).data.objId;
 
