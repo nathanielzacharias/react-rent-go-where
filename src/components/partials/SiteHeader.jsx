@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function logoutHandler(e) {
   e.preventDefault();
@@ -9,6 +10,7 @@ function logoutHandler(e) {
 
 function SiteHeader() {
   const token = localStorage.getItem("user_token");
+  const userId = jwt_decode(token).data.objId;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,7 +35,7 @@ function SiteHeader() {
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="/api/v1/board/show_properties"
+                href={`/api/v1/board/show_properties/${userId}`}
               >
                 Favourite
               </a>

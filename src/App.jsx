@@ -41,7 +41,7 @@ function App() {
           element={<PropertyIdPage />}
         />
         <Route
-          path="/api/v1/board/show_properties"
+          path="/api/v1/board/show_properties/:userID"
           element={<PropertyBoard />}
         />
       </Routes>
