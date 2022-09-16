@@ -59,7 +59,7 @@ function PropertyDetail(props) {
         return response.json();
       })
       .then((jsonResponse) => {
-        console.log("edit user successful");
+        console.log("successfully add to dashboard");
       })
       .catch((err) => {
         console.log("err message");

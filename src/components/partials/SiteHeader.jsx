@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
-import { useNavigate } from 'react-router-dom'
+import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
 
 function logoutHandler(e) {
-  e.preventDefault()
-  localStorage.removeItem('user_token')
+  e.preventDefault();
+  localStorage.removeItem("user_token");
 }
 
 function SiteHeader() {
@@ -30,7 +30,11 @@ function SiteHeader() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/api/v1/board/show_properties"
+              >
                 Favourite
               </a>
             </li>
@@ -42,26 +46,24 @@ function SiteHeader() {
           </ul>
 
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-            {
-            token ? (
+            {token ? (
               <Dropdown>
-
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-
                   UserName
                 </Dropdown.Toggle>
 
-                
-        
-            
-
                 <Dropdown.Menu>
-                  <Dropdown.Item><Link to="/api/v1/profile">Profile</Link></Dropdown.Item>
-                  <Dropdown.Item><a onClick={logoutHandler}><Link to="/">Logout</Link></a></Dropdown.Item>
+                  <Dropdown.Item>
+                    <Link to="/api/v1/profile">Profile</Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <a onClick={logoutHandler}>
+                      <Link to="/">Logout</Link>
+                    </a>
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-              ) : (
+            ) : (
               <>
                 <li className="nav-link">
                   <Link to="/api/v1/auth/register">Register</Link>
@@ -70,9 +72,7 @@ function SiteHeader() {
                   <Link to="/api/v1/auth/login">Login</Link>
                 </li>
               </>
-              )
-            }
-
+            )}
           </ul>
         </div>
       </div>
