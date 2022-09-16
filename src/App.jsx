@@ -24,6 +24,7 @@ import Login from "./components/login/Login"
 import userProfile from "./components/userProfile/userProfile";
 
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import styles from './components/homepage-container/homepage.module.scss'
 
 
@@ -35,22 +36,27 @@ function App() {
     <div>
       <SiteHeader />
 
-      {/* <Col sm={2} className = {styles['sidebar-container']}> */}
-      {/* <Col  sm={2} > */}
+      <Row className={styles["homepage-container"]}>
+
+      <Col sm={2} className = {styles['sidebar-container']}>
         <Sidebar setNumBedrooms={setNumBedrooms}/>
-      {/* </Col> */}
+      </Col>
 
-      <Routes>
-        <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
-        <Route path="/api/v1/app/show_properties/:propID" element={<IndividualPropertyCard />} />
-        <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
+      <Col sm={10}>
+        <Routes>
+          <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
+          <Route path="/api/v1/app/show_properties/:propID" element={<IndividualPropertyCard />} />
+          <Route path="/api/v1/auth/login" element={<Guest component={Login} />} />
 
-        <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
-        <Route path="/api/v1/auth/register" element={<SignUp />} />
-        <Route path="/user/:userID" element={<Homepage />} />
-        <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
+          <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
+          <Route path="/api/v1/auth/register" element={<SignUp />} />
+          <Route path="/user/:userID" element={<Homepage />} />
+          <Route path ="/api/v1/profile" element={<Auth component={userProfile} />} />
 
-      </Routes>
+        </Routes>
+      </Col>
+
+      </Row>
 
     </div>
   );

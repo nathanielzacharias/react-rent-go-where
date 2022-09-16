@@ -4,6 +4,7 @@ import styles from "./property.module.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Spinner from 'react-bootstrap/Spinner';
 
 function PropertyGrid(props) {
   const [properties, setProperties] = useState([]);
@@ -62,7 +63,13 @@ function PropertyGrid(props) {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
-      {filteredPropertyCards}
+      {properties ? (
+        filteredPropertyCards
+      ) : (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      )}
     </Container>
   );
 }

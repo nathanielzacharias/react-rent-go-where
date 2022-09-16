@@ -8,20 +8,12 @@ import styles from './homepage.module.scss'
 function Homepage(props){
     return(
         <Container fluid className = {styles['homepage-container']}>
-        
-        {/* <Row  className = {styles['homepage-container']}> */}
-          {/* <Col sm={2} className = {styles['sidebar-container']}>
-              <Sidebar setNumBedrooms={props.setNumBedrooms}/>
-          </Col> */}
 
-          <Col>
-          <div></div>
-          </Col>
+
         
           <Col sm={10}>
               <PropertyGrid numBedrooms={props.numBedrooms}/>
           </Col>
-        {/* </Row> */}
 
       </Container>
     )
