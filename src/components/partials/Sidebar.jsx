@@ -41,7 +41,16 @@ function Sidebar(props) {
 
 
     return (
-      <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
+      
+      <div style={{ 
+        display: 'flex', 
+        height: '100%', 
+        overflow: 'scroll initial',
+        padding: '0px 0px',
+        margin: '0px 0px',
+        width: '300px',
+        
+        }}>
         <CDBSidebar textColor="#fff" backgroundColor="RGB(33 37 41)">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <div>Filter</div>

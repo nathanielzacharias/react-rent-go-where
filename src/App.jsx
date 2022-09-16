@@ -35,9 +35,10 @@ function App() {
     <div>
       <SiteHeader />
 
-      <Col sm={2} className = {styles['sidebar-container']}>
+      {/* <Col sm={2} className = {styles['sidebar-container']}> */}
+      {/* <Col  sm={2} > */}
         <Sidebar setNumBedrooms={setNumBedrooms}/>
-      </Col>
+      {/* </Col> */}
 
       <Routes>
         <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
