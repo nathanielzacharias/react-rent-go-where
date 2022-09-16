@@ -8,6 +8,7 @@ function logoutHandler(e) {
 }
 
 function SiteHeader() {
+  const navigate = useNavigate()
   const token = localStorage.getItem("user_token");
 
   return (
@@ -48,11 +49,14 @@ function SiteHeader() {
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             {token ? (
               <Dropdown>
+
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
+
                   UserName
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
+
                   <Dropdown.Item>
                     <Link to="/api/v1/profile">Profile</Link>
                   </Dropdown.Item>
@@ -61,6 +65,7 @@ function SiteHeader() {
                       <Link to="/">Logout</Link>
                     </a>
                   </Dropdown.Item>
+
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
@@ -72,7 +77,9 @@ function SiteHeader() {
                   <Link to="/api/v1/auth/login">Login</Link>
                 </li>
               </>
+
             )}
+
           </ul>
         </div>
       </div>
