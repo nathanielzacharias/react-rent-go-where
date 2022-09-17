@@ -18,11 +18,34 @@ function PropertyGrid(props) {
     fetchApi();
   }, []);
 
-  console.log(properties);
 
-  const propertyCards = properties.map((property) => (
-    <PropertyCard key={property._id} data={property} />
-  ));
+  //filter based on numBedrooms
+  useEffect(() => {
+    console.log("numBedrooms is: ", numBedrooms);
+
+    if (numBedrooms === null || numBedrooms === "showAll") {
+      mappedFilteredProperties = properties.map((property) => (
+        <PropertyCard key={property._id} data={property} />
+      ));
+      console.log("mappedFilteredProperties is: ", mappedFilteredProperties);
+
+      setFilteredPropertyCards(mappedFilteredProperties);
+    } else {
+      //filter here by numBedrooms
+      filteredProperties = properties.filter(
+        (property) => property.bedrooms.split(" ")[0] === numBedrooms
+      );
+      console.log("filteredProperties is: ", filteredProperties);
+
+      mappedFilteredProperties = filteredProperties.map((property) => (
+        <PropertyCard key={property._id} data={property} />
+      ));
+      console.log("mappedFilteredProperties is: ", mappedFilteredProperties);
+
+      setFilteredPropertyCards(mappedFilteredProperties);
+    }
+  }, [props, properties]);
+
 
   return (
     <Container
@@ -30,7 +53,15 @@ function PropertyGrid(props) {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
-      {propertyCards}
+
+      {properties ? (
+        filteredPropertyCards
+      ) : (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      )}
+
     </Container>
   );
 }
