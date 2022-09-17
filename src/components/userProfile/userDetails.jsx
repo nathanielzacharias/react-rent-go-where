@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import Container from 'react-bootstrap/Container';
 import jwt_decode from "jwt-decode";
 
 function UserDetail(props) {
     const userObjId = jwt_decode(localStorage.getItem('user_token')).data.objId
-    console.log ('userObjId :', userObjId)
     const [userData, setUserData] = useState()
         
     useEffect(() => { 
@@ -18,10 +18,12 @@ function UserDetail(props) {
 
     console.log('userdata :', userData)
 
+    const editUserDataCards = userData.map((durian) => (<editUserDataCards key={durian._id} data={durian} />))
+
     return (
-
-        <h1>UserDetails is here</h1>
-
+    <Container fluid className='d-flex flex-row flex-wrap' style={{ margin:'5px 5px 5px 5px', padding:'5px 5px'}}>
+    { editUserDataCards }
+    </Container>
         )
 }
 
