@@ -14,13 +14,8 @@ function Homepage(props){
           <Col sm={10}>
               <PropertyGrid numBedrooms={props.numBedrooms}/>
           </Col>
-
-
-        <Col sm={10}>
-          <PropertyGrid />
-        </Col>
-      </Row>
-    </Container>
+  
+        </Container>
   );
 }
 

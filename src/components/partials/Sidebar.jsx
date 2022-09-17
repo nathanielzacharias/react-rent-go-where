@@ -55,13 +55,13 @@ function Sidebar(props) {
         }}>
         <CDBSidebar textColor="#fff" backgroundColor="RGB(33 37 41)">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <div>Filter</div>
+          <div>Filters</div>
               
           </CDBSidebarHeader>
   
           <CDBSidebarFooter style={{ textAlign: 'left', padding: '20px 30px'}}>
 
-            <div className="sidebar-btn-wrapper">
+            {/* <div className="sidebar-btn-wrapper">
               <p>
                 Location
               </p>
@@ -79,7 +79,7 @@ function Sidebar(props) {
                 defaultValue={[600, 1000]}
                 onAfterChange={onBudgetSliderAfterChange}
               />
-            </div>
+            </div> */}
 
             <div className="sidebar-btn-wrapper">
               <Dropdown.Button type="secondary"  overlay={bedroomsMenu}>

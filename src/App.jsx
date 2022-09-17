@@ -19,6 +19,8 @@ import userProfile from "./components/userProfile/userProfile";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styles from './components/homepage-container/homepage.module.scss'
+import Sidebar from "./components/partials/Sidebar";
+
 
 
 
@@ -38,7 +40,7 @@ function App() {
 
       <Col sm={10}>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
         <Route
           path="/api/v1/auth/login"
           element={<Guest component={Login} />}
