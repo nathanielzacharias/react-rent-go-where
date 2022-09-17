@@ -15,7 +15,7 @@ import { Dropdown, Menu, Space } from 'antd';
 
 
 function Sidebar(props) {
-  
+
   function handleClick(item) {
     // console.log("from Sidebar, item.key is: ", item.key)
     props.setNumBedrooms(item.key)
@@ -26,6 +26,10 @@ function Sidebar(props) {
       <Menu.Item key='1'>1 bedroom</Menu.Item>
       <Menu.Item key='2'>2 bedrooms</Menu.Item>
       <Menu.Item key='3'>3 bedrooms</Menu.Item>
+      <Menu.Item key='4'>4 bedrooms</Menu.Item>
+      <Menu.Item key='5'>5 bedrooms</Menu.Item>
+      {/* <Menu.Item key='6'>6 or more bedrooms</Menu.Item> */}
+      <Menu.Item key='showAll'>No filter</Menu.Item>
     </Menu>
   
   );
