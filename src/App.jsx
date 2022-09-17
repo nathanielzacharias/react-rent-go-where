@@ -27,6 +27,7 @@ import Sidebar from "./components/partials/Sidebar";
 
 function App() {
   // const [login, setLogin] = useState(0);
+  const [numBedrooms, setNumBedrooms] = useState('showAll')
 
   return (
     <div>
