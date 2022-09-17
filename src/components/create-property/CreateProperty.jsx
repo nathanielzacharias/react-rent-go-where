@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import jwt_decode from "jwt-decode";
 
 function CreateProperties() {
   const navigate = useNavigate();
@@ -10,9 +11,25 @@ function CreateProperties() {
     address: "",
     year: "",
     price: "",
-    bedroom: "",
-    bathroom: "",
+    bedrooms: "",
+    bathrooms: "",
+    originalPoster: "",
   });
+  const [userData, setUserData] = useState(null);
+
+  const userId = jwt_decode(localStorage.getItem("user_token")).data.objId;
+
+  console.log(userId);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await fetch(`http://localhost:8000/api/v1/profile/${userId}`);
+      const data = await res.json();
+      console.log(data);
+      setUserData(data);
+    };
+    fetchApi();
+  }, []);
 
   function handleInputChange(e) {
     setFormData({
@@ -22,6 +39,7 @@ function CreateProperties() {
       // price: 'asdasd'
       ...formData,
       [e.target.name]: e.target.value,
+      originalPoster: userData.email,
     });
   }
 
@@ -37,16 +55,13 @@ function CreateProperties() {
         "Content-type": "application/json",
       },
     })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonResponse) => {
+      .then(() => {
         // displaying success message
         toast.success("Create successful");
         console.log("Create property successful");
 
         // redirect to property listing page
-        // navigate("/");
+        navigate("/");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -54,7 +69,7 @@ function CreateProperties() {
   };
 
   return (
-    <Form style={{ margin: "10px 400px" }}>
+    <Form onSubmit={handleFormSubmit} style={{ margin: "10px 400px" }}>
       <Form.Group className="mb-3">
         <Form.Label>Address</Form.Label>
         <Form.Control
@@ -110,7 +125,7 @@ function CreateProperties() {
         />
       </Form.Group>
 
-      <Button onSubmit={handleFormSubmit} variant="primary" type="submit">
+      <Button variant="primary" type="submit">
         Submit
       </Button>
     </Form>
