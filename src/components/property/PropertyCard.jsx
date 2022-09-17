@@ -8,7 +8,7 @@ function PropertyCard(props) {
     boards,
     _id,
     address,
-    rooms,
+    bedrooms,
     year,
     price,
     bathrooms,
@@ -27,11 +27,28 @@ function PropertyCard(props) {
           </Card.Body>
 
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>{rooms}</ListGroup.Item>
-            <ListGroup.Item>{year}</ListGroup.Item>
-            <ListGroup.Item>{price}</ListGroup.Item>
-            <ListGroup.Item>{bathrooms}</ListGroup.Item>
-            <ListGroup.Item>{sqf_list}</ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "15px" }}>{year}</ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "25px", fontWeight: "bold" }}>
+              {price}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bed"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
+              {bedrooms}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bath"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
+              {bathrooms}
+            </ListGroup.Item>
           </ListGroup>
         </Card>
       </Link>

@@ -18,6 +18,8 @@ function PropertyGrid(props) {
     fetchApi();
   }, []);
 
+  console.log(properties);
+
   const propertyCards = properties.map((property) => (
     <PropertyCard key={property._id} data={property} />
   ));
