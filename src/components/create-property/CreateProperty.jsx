@@ -55,7 +55,7 @@ function CreateProperties() {
         "Content-type": "application/json",
       },
     })
-      .then(() => {
+      .then((jsonResponse) => {
         // displaying success message
         toast.success("Create successful");
         console.log("Create property successful");
