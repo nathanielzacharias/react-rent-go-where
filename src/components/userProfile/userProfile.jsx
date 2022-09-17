@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import jwt_decode from "jwt-decode";
-import userDetails from './userDetails';
+import userDetails from './UserDetails';
 import { PanoramaSharp } from '@mui/icons-material';
+// import {useParams} from 'react-router-dom'
 
 
 function UserProfile() {
@@ -11,10 +12,10 @@ function UserProfile() {
   console.log(userObjId.data.objId)
   // const navigate = useNavigate()
   // const params = useParams()
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
   const [formData, setFormData] = useState({
-    userId: `${userObjId}`,
-    followedProperties: '',
+    // userId: `${userObjId}`,
+    // followedProperties: '',
   })
 
 
@@ -22,7 +23,7 @@ function UserProfile() {
     setFormData({
         // ...formData ->
         userId: userObjId.data.objId,
-        followedProperties: e.target.value,
+        // followedProperties: e.target.value,
     })
   }
 
@@ -32,8 +33,8 @@ function UserProfile() {
     // validations ...
 
     // processing
-    fetch(`http://localhost:8000/api/v1/profile/update`, {
-        method: 'PATCH',
+    fetch(`http://localhost:8000/api/v1/profile/`, {
+        method: 'GET',
         body: JSON.stringify(formData),
         headers: {
             'Content-type': 'application/json',
@@ -43,6 +44,7 @@ function UserProfile() {
             return response.json()
         })
         .then(jsonResponse => {
+          console.log(jsonResponse)
           toast.success("Edit user data successful")
         })
         .catch(err => {
