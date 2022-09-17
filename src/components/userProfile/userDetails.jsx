@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react'
 import jwt_decode from "jwt-decode";
 
 function UserDetail(props) {
-    const userObjId = jwt_decode(localStorage.getItem('user_token'))
+    const userObjId = jwt_decode(localStorage.getItem('user_token')).data.objId
     console.log ('userObjId :', userObjId)
     const [userData, setUserData] = useState()
         
     useEffect(() => { 
-        const fetchApi = async () => {
-            const res = await fetch('http://localhost:8000/api/v1/profile')
+        const fetchUserData = async () => {
+            const res = await fetch(`http://localhost:8000/api/v1/profile/${userObjId}`)
             const data = await res.json()
+            console.log('data :', data)
             setUserData (data)
         }
-        fetchApi (userObjId)
+        fetchUserData ()
         },[])
+
     console.log('userdata :', userData)
 
     return (
