@@ -13,39 +13,22 @@ import { Slider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 
-const bedroomsMenu = (
-  <Menu
-    items={[
-      {
-        label: '1 bedroom',
-        key: '1',
-      },
-      {
-        label: '2 bedrooms',
-        key: '2',
-      },
-      {
-        label: '3 bedrooms',
-        key: '3',
-      },
-      {
-        label: '4 bedrooms',
-        key: '4',
-      },
-      {
-        label: '5 bedrooms',
-        key: '5',
-      },
-      {
-        label: '6 or more bedrooms',
-        key: '6',
-      },
-    ]}
-  />
-);
 
-function Sidebar() {
-
+function Sidebar(props) {
+  
+  function handleClick(item) {
+    // console.log("from Sidebar, item.key is: ", item.key)
+    props.setNumBedrooms(item.key)
+  }
+  
+  const bedroomsMenu = (
+    <Menu onClick={handleClick}>
+      <Menu.Item key='1'>1 bedroom</Menu.Item>
+      <Menu.Item key='2'>2 bedrooms</Menu.Item>
+      <Menu.Item key='3'>3 bedrooms</Menu.Item>
+    </Menu>
+  
+  );
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
   };
