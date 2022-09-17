@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Guest from "./components/auth/Guest";
 import Auth from "./components/auth/Auth";
 import Login from "./components/login/Login"
-import UserProfile from "./components/userProfile/UserProfile";
+// import UserProfile from "./components/userProfile/UserProfile";
 
 
 import Col from "react-bootstrap/Col";
@@ -50,10 +50,10 @@ function App() {
               path="/api/v1/auth/login"
               element={<Guest component={Login} />}
             />
-            <Route
+            {/* <Route
               path="/api/v1/profile"
-              element={<Auth component={userProfile} />}
-            />
+              element={<Auth component={UserProfile} />}
+            /> */}
             <Route path="/api/v1/auth/register" element={<SignUp />} />
             <Route path="/user/:userID" element={<Homepage />} />
             <Route
