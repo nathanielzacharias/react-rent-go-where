@@ -12,6 +12,7 @@ function PropertyCard(props) {
     year,
     price,
     bathrooms,
+    originalPoster,
     sqf_list,
     images,
   } = props.data;
@@ -48,6 +49,10 @@ function PropertyCard(props) {
                 style={{ margin: "5px 10px 0px 0px" }}
               ></i>
               {bathrooms}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "15px" }}>
+              Listed by{" "}
+              <span style={{ fontWeight: "bold" }}>{originalPoster}</span>
             </ListGroup.Item>
           </ListGroup>
         </Card>
