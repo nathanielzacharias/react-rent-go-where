@@ -1,3 +1,11 @@
+import React, {useEffect, useState} from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import jwt_decode from "jwt-decode";
+import userDetails from './UserDetails';
+import { PanoramaSharp } from '@mui/icons-material';
+// import {useParams} from 'react-router-dom'
+
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -7,6 +15,7 @@ import jwt_decode from "jwt-decode";
 import { getConfirmLocale } from "antd/lib/modal/locale";
 
 function UserProfile() {
+
   const userObjId = jwt_decode(localStorage.getItem("user_token"));
   console.log(userObjId.data.objId);
   const navigate = useNavigate();
@@ -30,15 +39,8 @@ function UserProfile() {
 
   function handleInputChange(e) {
     setFormData({
-      // ...formData ->
-      userId: userObjId.data.objId,
-      gender: e.target.value,
-      // breed: 'asdasd'
-      // ...formData,
-      // [e.target.name]: e.target.value,
-    });
-
-    // setFormData({name: 'asdasd', gender: 'asdasd', breed: 'asdasd',    gender: 'someSpecies'})
+        userId: userObjId.data.objId,
+    })
 
   }
 
@@ -48,6 +50,7 @@ function UserProfile() {
     // validations ...
 
     // processing
+
     fetch(`http://localhost:8000/api/v1/profile/update`, {
       method: "PATCH",
       body: JSON.stringify(formData),

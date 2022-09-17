@@ -5,17 +5,20 @@ import { ToastContainer } from "react-toastify";
 import SiteHeader from "./components/partials/SiteHeader";
 import PropertyIdPage from "./components/property-id-page/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
+
 import SignUp from "./components/register/Register";
 import PropertyBoard from "./components/dashboard/PropertyBoard";
 import CreateProperties from "./components/create-property/CreateProperty";
+import UserDetails from "./components/userProfile/UserDetails";
 
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import Guest from "./components/auth/Guest";
 import Auth from "./components/auth/Auth";
-import Login from "./components/login/Login";
-import userProfile from "./components/userProfile/userProfile";
+import Login from "./components/login/Login"
+import UserProfile from "./components/userProfile/UserProfile";
+
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -37,7 +40,10 @@ function App() {
         </Col>
 
         <Col sm={10}>
+
           <Routes>
+            <Route path ="/api/v1/profile" element={<Auth component={UserDetails} />} />
+
             <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
 
             <Route
