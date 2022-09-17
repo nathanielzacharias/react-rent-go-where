@@ -32,9 +32,21 @@ function PropertyCard(props) {
               {price}
             </ListGroup.Item>
             <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bed"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
               {bedrooms}
             </ListGroup.Item>
             <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bath"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
               {bathrooms}
             </ListGroup.Item>
           </ListGroup>

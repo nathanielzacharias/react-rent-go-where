@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import { useParams } from "react-router-dom";
 
 function PropertyDetail(props) {
-  const { _id, address, year, price, rooms, bathrooms, boards, images } =
+  const { _id, address, year, price, bedrooms, bathrooms, boards, images } =
     props.data;
 
   const userObjId = jwt_decode(localStorage.getItem("user_token"));
@@ -94,7 +94,7 @@ function PropertyDetail(props) {
             aria-hidden="true"
             style={{ margin: "5px 10px 0px 0px" }}
           ></i>
-          {rooms}
+          {bedrooms}
         </h4>
         <h4>
           <i
