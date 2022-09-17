@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PropertyCard from "../property/PropertyCard";
 import Container from "react-bootstrap/Container";
+import { Row } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 
 function PropertyBoard(props) {
@@ -70,7 +71,11 @@ function PropertyBoard(props) {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
-      {propertyDataCard ? propertyDataCard : ""}
+      <Row style={{ alignContent: "center" }}>
+        {" "}
+        <h3 style={{ fontSize: "30px" }}>My dashboard</h3>
+      </Row>
+      <Row>{propertyDataCard ? propertyDataCard : ""}</Row>
     </Container>
 
     // "hello world"

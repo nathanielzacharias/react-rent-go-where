@@ -7,6 +7,7 @@ import PropertyIdPage from "./components/property-id-page/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from "./components/register/Register";
 import PropertyBoard from "./components/dashboard/PropertyBoard";
+import CreateProperties from "./components/create-property/CreateProperty";
 
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -39,6 +40,10 @@ function App() {
         <Route
           path="/api/v1/app/show_properties/:propID"
           element={<PropertyIdPage />}
+        />
+        <Route
+          path="/api/v1/app/create_properties"
+          element={<CreateProperties />}
         />
         <Route
           path="/api/v1/board/show_properties/:userID"

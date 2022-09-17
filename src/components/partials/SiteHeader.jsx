@@ -10,9 +10,12 @@ function logoutHandler(e) {
 
 function SiteHeader() {
   const navigate = useNavigate();
-  const token = localStorage.getItem("user_token");
-  const userId = jwt_decode(token).data.objId;
 
+  const token = localStorage.getItem("user_token");
+  let userId = "";
+  if (token) {
+    userId = jwt_decode(token).data.objId;
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -33,18 +36,40 @@ function SiteHeader() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href={`/api/v1/board/show_properties/${userId}`}
-              >
-                Favourite
-              </a>
+              {token ? (
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href={`/api/v1/board/show_properties/${userId}`}
+                >
+                  Favourite
+                </a>
+              ) : (
+                ""
+              )}
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Potential Housemate
-              </a>
+              {token ? (
+                <a className="nav-link active" aria-current="page" href="#">
+                  Potential Housemate
+                </a>
+              ) : (
+                ""
+              )}
+            </li>
+
+            <li className="nav-item">
+              {token ? (
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href={`/api/v1/app/create_properties`}
+                >
+                  Add properties
+                </a>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
 
