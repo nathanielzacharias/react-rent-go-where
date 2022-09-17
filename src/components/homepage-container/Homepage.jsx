@@ -5,6 +5,7 @@ import PropertyGrid from "../property/PropertyGrid";
 import Sidebar from "../partials/Sidebar";
 import styles from "./homepage.module.scss";
 
+
 function Homepage(props){
     return(
         <Container fluid className = {styles['homepage-container']}>
@@ -16,6 +17,7 @@ function Homepage(props){
           </Col>
   
         </Container>
+
   );
 }
 

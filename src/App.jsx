@@ -7,6 +7,7 @@ import PropertyIdPage from "./components/property-id-page/PropertyIdPage";
 import Homepage from "./components/homepage-container/Homepage";
 import SignUp from "./components/register/Register";
 import PropertyBoard from "./components/dashboard/PropertyBoard";
+import CreateProperties from "./components/create-property/CreateProperty";
 
 import "./antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,6 +17,7 @@ import Auth from "./components/auth/Auth";
 import Login from "./components/login/Login";
 import userProfile from "./components/userProfile/userProfile";
 
+
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styles from './components/homepage-container/homepage.module.scss'
@@ -23,12 +25,12 @@ import Sidebar from "./components/partials/Sidebar";
 
 
 
-
 function App() {
-  const [numBedrooms, setNumBedrooms] = useState('showAll');
+  // const [login, setLogin] = useState(0);
 
   return (
     <div>
+      {/* <SiteHeader props = {setLogin} /> */}
       <SiteHeader />
 
 
@@ -41,6 +43,7 @@ function App() {
       <Col sm={10}>
         <Routes>
           <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
+          
         <Route
           path="/api/v1/auth/login"
           element={<Guest component={Login} />}
@@ -56,17 +59,17 @@ function App() {
           element={<PropertyIdPage />}
         />
         <Route
-          path="/api/v1/board/show_properties"
+          path="/api/v1/app/create_properties"
+          element={<CreateProperties />}
+        />
+        <Route
+          path="/api/v1/board/show_properties/:userID"
           element={<PropertyBoard />}
         />
-
-        </Routes>
+      </Routes>
+      
       </Col>
-
       </Row>
-
-
-
     </div>
   );
 }

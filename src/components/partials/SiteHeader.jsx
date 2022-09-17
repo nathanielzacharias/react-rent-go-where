@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 function logoutHandler(e) {
   e.preventDefault();
@@ -8,9 +9,13 @@ function logoutHandler(e) {
 }
 
 function SiteHeader() {
-  const navigate = useNavigate()
-  const token = localStorage.getItem("user_token");
+  const navigate = useNavigate();
 
+  const token = localStorage.getItem("user_token");
+  let userId = "";
+  if (token) {
+    userId = jwt_decode(token).data.objId;
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -31,32 +36,51 @@ function SiteHeader() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href="/api/v1/board/show_properties"
-              >
-                Favourite
-              </a>
+              {token ? (
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href={`/api/v1/board/show_properties/${userId}`}
+                >
+                  Favourite
+                </a>
+              ) : (
+                ""
+              )}
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Potential Housemate
-              </a>
+              {token ? (
+                <a className="nav-link active" aria-current="page" href="#">
+                  Potential Housemate
+                </a>
+              ) : (
+                ""
+              )}
+            </li>
+
+            <li className="nav-item">
+              {token ? (
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href={`/api/v1/app/create_properties`}
+                >
+                  Add properties
+                </a>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
 
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             {token ? (
               <Dropdown>
-
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-
                   UserName
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-
                   <Dropdown.Item>
                     <Link to="/api/v1/profile">Profile</Link>
                   </Dropdown.Item>
@@ -65,7 +89,6 @@ function SiteHeader() {
                       <Link to="/">Logout</Link>
                     </a>
                   </Dropdown.Item>
-
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
@@ -77,9 +100,7 @@ function SiteHeader() {
                   <Link to="/api/v1/auth/login">Login</Link>
                 </li>
               </>
-
             )}
-
           </ul>
         </div>
       </div>
