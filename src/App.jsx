@@ -42,6 +42,7 @@ function App() {
         <Col sm={10}>
 
           <Routes>
+            {/* <Route path ="/user/:userID/delete" element={<Auth component={UserDetails} />} /> */}
             <Route path ="/api/v1/profile" element={<Auth component={UserDetails} />} />
 
             <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
