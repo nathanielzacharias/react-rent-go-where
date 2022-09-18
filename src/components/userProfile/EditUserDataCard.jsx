@@ -18,22 +18,24 @@ function EditUserDataCard(props) {
     profilePic,
   } = props.data;
 
-  console.log(props.data);
-
   const navigate = useNavigate();
   const [inputGender, setInputGender] = useState();
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     userId: `${_id}`,
-    gender: inputGender,
   });
-
+  console.log("formdata : ", formData);
   useEffect(() => {
-    setFormData(props.data);
-  }, []);
+    const fetchApi = async () => {
+      const res = await fetch(`http://localhost:8000/api/v1/profile/`);
+      const data = await res.json();
+      setUser(data);
+      setFormData(data);
+    };
 
-  // setFormData(props.data)
-  // console.log("formdata is :", formData)
+    fetchApi();
+  }, [props.data]);
+
   // console.log("props.data is", props.data);
 
   function handleInputChange(e) {
@@ -71,6 +73,19 @@ function EditUserDataCard(props) {
   return (
     <div>
       <Form onSubmit={handleFormSubmit} style={{ margin: "10px 400px" }}>
+
+        <label htmlFor="name" className="form-label">
+          name
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="name"
+          value={formData.name}
+          name="name"
+          onChange={handleInputChange}
+        />
+
         <label htmlFor="gender" className="form-label">
           gender
         </label>
@@ -80,6 +95,18 @@ function EditUserDataCard(props) {
           id="gender"
           value={formData.gender}
           name="gender"
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="ethinicity" className="form-label">
+        ethinicity
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="ethinicity"
+          value={formData.ethinicity}
+          name="ethinicity"
           onChange={handleInputChange}
         />
 
