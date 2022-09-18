@@ -5,11 +5,9 @@ import styles from "./property.module.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Spinner from 'react-bootstrap/Spinner';
-
+import Spinner from "react-bootstrap/Spinner";
 
 function PropertyGrid(props) {
-  
   const [properties, setProperties] = useState([]);
   const [filteredPropertyCards, setFilteredPropertyCards] = useState([]);
 
@@ -29,7 +27,6 @@ function PropertyGrid(props) {
 
     fetchApi();
   }, []);
-
 
   //filter based on numBedrooms
   useEffect(() => {
@@ -58,14 +55,12 @@ function PropertyGrid(props) {
     }
   }, [props, properties]);
 
-
   return (
     <Container
       fluid
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
-
       {properties ? (
         filteredPropertyCards
       ) : (
@@ -73,7 +68,6 @@ function PropertyGrid(props) {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
-
     </Container>
   );
 }

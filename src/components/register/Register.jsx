@@ -44,6 +44,7 @@ function SignUp() {
     // console.log(event.currentTarget)
     const data = new FormData(event.currentTarget);
     console.log({
+      name: `${data.get("firstName")} ${data.get("lastName")}`,
       email: data.get("email"),
       password: data.get("password"),
     });
@@ -51,6 +52,7 @@ function SignUp() {
     fetch(`http://localhost:8000/api/v1/auth/register`, {
       method: "POST",
       body: JSON.stringify({
+        name: `${data.get("firstName")} ${data.get("lastName")}`,
         email: data.get("email"),
         password: data.get("password"),
       }),
