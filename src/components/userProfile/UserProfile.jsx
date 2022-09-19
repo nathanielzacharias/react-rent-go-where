@@ -2,10 +2,9 @@
 // import { useParams, useNavigate } from 'react-router-dom'
 // import { toast } from 'react-toastify'
 // import jwt_decode from "jwt-decode";
-import userDetails from './UserDetails';
-import { PanoramaSharp } from '@mui/icons-material';
+import userDetails from "./UserDetails";
+import { PanoramaSharp } from "@mui/icons-material";
 // import {useParams} from 'react-router-dom'
-
 
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -15,7 +14,6 @@ import jwt_decode from "jwt-decode";
 import { getConfirmLocale } from "antd/lib/modal/locale";
 
 function UserProfile() {
-
   const userObjId = jwt_decode(localStorage.getItem("user_token"));
   console.log(userObjId.data.objId);
   const navigate = useNavigate();
@@ -39,9 +37,8 @@ function UserProfile() {
 
   function handleInputChange(e) {
     setFormData({
-        userId: userObjId.data.objId,
-    })
-
+      userId: userObjId.data.objId,
+    });
   }
 
   function handleFormSubmit(e) {
@@ -58,7 +55,6 @@ function UserProfile() {
         "Content-type": "application/json",
       },
     })
-
       .then((response) => {
         return response.json();
       })
@@ -107,10 +103,8 @@ function UserProfile() {
           </form>
         </div>
       </div>
-
     </div>
   );
- 
 }
 
 export default UserProfile;

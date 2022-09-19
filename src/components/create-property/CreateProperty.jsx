@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
+import { IKImage, IKContext, IKUpload } from "imagekitio-react";
+import ImageUpload from "./UploadImage";
 
 import ImageUpload from "./UploadImage";
 
@@ -141,12 +143,14 @@ function CreateProperties() {
         <Form.Control type="file" multiple />
       </Form.Group> */}
 
+
       <ImageUpload
         // name="images"
         // value={propertyImages}
         setPropertyImages={setPropertyImages}
         propertyImages={propertyImages}
       />
+
 
       <Button variant="primary" type="submit">
         Submit

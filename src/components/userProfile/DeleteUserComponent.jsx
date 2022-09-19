@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 function DeleteUserComponent(props) {
 
     const id = props.userObjId
-    console.log("props is :", id)
-    console.log(`/api/v1/profile/${id}`)
+    // console.log("props is :", id)
+    // console.log(`/api/v1/profile/${id}`)
 
     let navigate = useNavigate()
 
