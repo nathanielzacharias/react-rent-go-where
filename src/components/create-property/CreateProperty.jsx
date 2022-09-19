@@ -4,8 +4,12 @@ import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
+import { IKImage, IKContext, IKUpload } from "imagekitio-react";
+import ImageUpload from "./UploadImage";
 
 function CreateProperties() {
+  const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     address: "",
@@ -124,6 +128,13 @@ function CreateProperties() {
           placeholder="e.g. 6 Baths"
         />
       </Form.Group>
+
+      {/* <Form.Group controlId="formFileMultiple" className="mb-3">
+        <Form.Label>Image upload</Form.Label>
+        <Form.Control type="file" multiple />
+      </Form.Group> */}
+
+      <ImageUpload />
 
       <Button variant="primary" type="submit">
         Submit

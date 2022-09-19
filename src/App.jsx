@@ -25,6 +25,13 @@ import Row from "react-bootstrap/Row";
 import styles from "./components/homepage-container/homepage.module.scss";
 import Sidebar from "./components/partials/Sidebar";
 
+// required parameter to fetch images
+const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
+
+// optional parameters (needed for client-side upload)
+const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
+const authenticationEndpoint = "http://localhost:8000/auth";
+
 function App() {
   // const [login, setLogin] = useState(0);
   const [numBedrooms, setNumBedrooms] = useState("showAll");

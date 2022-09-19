@@ -76,7 +76,7 @@ function SiteHeader() {
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             {token ? (
               <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
                   UserName
                 </Dropdown.Toggle>
 
