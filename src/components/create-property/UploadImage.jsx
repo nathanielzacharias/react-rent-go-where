@@ -1,28 +1,20 @@
-
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
-
-
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
-
 // required parameter to fetch images
 const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
-
 // optional parameters (needed for client-side upload)
 const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
 const authenticationEndpoint = "http://localhost:8000/auth";
-
 
 function ImageUpload({ propertyImages, setPropertyImages }) {
   const [imagePath, setImagePath] = useState([]);
 
   const [imageNumber, setImageNumber] = useState(0);
-
   const onError = (err) => {
     console.log("Error", err);
   };
-
   const onSuccess = (res) => {
     console.log("Success", res);
     toast.success("Upload successful");
@@ -35,14 +27,12 @@ function ImageUpload({ propertyImages, setPropertyImages }) {
     console.log(imagePath);
     setImageNumber(imageNumber + 1);
   };
-
   const deleteImage = (event) => {
     event.preventDefault();
     setImageNumber(0);
     setPropertyImages([]);
     setImagePath([]);
   };
-
   console.log(propertyImages);
   console.log(imageNumber);
   console.log(imagePath);
@@ -53,40 +43,22 @@ function ImageUpload({ propertyImages, setPropertyImages }) {
         textAlign: "left",
         margin: "0px 0px 15px 0px",
       }}
-
-const onError = (err) => {
-  console.log("Error", err);
-};
-
-const onSuccess = (res) => {
-  console.log("Success", res);
-};
-
-function ImageUpload() {
-  return (
-    <div
-      className="App"
-      style={{ textAlign: "left", margin: "0px 0px 15px 0px" }}>
+    >
       <IKContext
         publicKey={publicKey}
         urlEndpoint={urlEndpoint}
         authenticationEndpoint={authenticationEndpoint}
       >
-
         <p>Upload image</p>
-
-
         <IKUpload
           fileName="test-upload.png"
           onError={onError}
           onSuccess={onSuccess}
-
           style={{
             textAlign: "left",
             margin: "0px 0px 15px 0px",
           }}
         />
-
         <span>{imageNumber} uploaded </span>
         <span>
           <Button variant="light" type="reset" onClick={deleteImage}>
@@ -103,11 +75,9 @@ function ImageUpload() {
           />
         ))}
         {/* <IKImage path={imagePath[0]} /> */}
-
       </IKContext>
       {/* ...other SDK components added previously */}
     </div>
   );
 }
-
 export default ImageUpload;

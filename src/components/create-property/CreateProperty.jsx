@@ -4,10 +4,8 @@ import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
-import { IKImage, IKContext, IKUpload } from "imagekitio-react";
 import ImageUpload from "./UploadImage";
 
-import ImageUpload from "./UploadImage";
 
 function CreateProperties() {
   const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
