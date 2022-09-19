@@ -18,11 +18,13 @@ function EditUserDataCard(props) {
     profilePic,
   } = props.data;
 
+
   const navigate = useNavigate();
   const [inputGender, setInputGender] = useState();
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     userId: `${_id}`,
+
   });
   console.log("formdata : ", formData);
   useEffect(() => {
@@ -74,18 +76,6 @@ function EditUserDataCard(props) {
     <div>
       <Form onSubmit={handleFormSubmit} style={{ margin: "10px 400px" }}>
 
-        <label htmlFor="name" className="form-label">
-          name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          value={formData.name}
-          name="name"
-          onChange={handleInputChange}
-        />
-
         <label htmlFor="gender" className="form-label">
           gender
         </label>
@@ -98,17 +88,6 @@ function EditUserDataCard(props) {
           onChange={handleInputChange}
         />
 
-        <label htmlFor="ethinicity" className="form-label">
-        ethinicity
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="ethinicity"
-          value={formData.ethinicity}
-          name="ethinicity"
-          onChange={handleInputChange}
-        />
 
         <Button variant="primary" type="submit">
           Submit

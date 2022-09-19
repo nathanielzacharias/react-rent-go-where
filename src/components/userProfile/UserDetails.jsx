@@ -5,7 +5,9 @@ import EditUserDataCard from "./EditUserDataCard";
 
 function UserDetail() {
   const userObjId = jwt_decode(localStorage.getItem("user_token")).data.objId;
+
   // console.log("userObjID is: ",userObjId)
+
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
@@ -14,13 +16,16 @@ function UserDetail() {
         `http://localhost:8000/api/v1/profile/${userObjId}`
       );
       const data = await res.json();
+
       // console.log('data :', data)
+
       setUserData(data);
     };
     fetchUserData();
   }, [userObjId]);
 
   // console.log('userdata :', userData)
+
 
   // const EditUserDataCard = userData.map((durian) => (<EditUserDataCard key={durian._id} data={durian} />))
 
@@ -30,6 +35,7 @@ function UserDetail() {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
+
       {<EditUserDataCard data={userData} />}
     </Container>
   );
