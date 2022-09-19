@@ -4,6 +4,7 @@ import PropertyCard from "../property/PropertyCard";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
+import CloseButton from "react-bootstrap/CloseButton";
 
 function PropertyBoard(props) {
   const [propertyBoard, setPropertyBoard] = useState([]);
@@ -12,17 +13,6 @@ function PropertyBoard(props) {
   const params = useParams();
   const userId = jwt_decode(localStorage.getItem("user_token")).data.objId;
   console.log(userId);
-
-  //   useEffect(() => {
-  //     const fetchApi = async () => {
-  //       const res = await fetch("http://localhost:8000/api/v1/profile");
-  //       const data = await res.json();
-  //       console.log(data);
-  //       //   setPropertyBoard(followedProperties);
-  //     };
-
-  //     fetchApi();
-  //   }, []);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -66,32 +56,17 @@ function PropertyBoard(props) {
   }, [propertyBoard]);
 
   return (
-    <Container
-      fluid
-      className="d-flex flex-row flex-wrap"
-      style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
-    >
+    <Container fluid style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}>
       <Row style={{ alignContent: "center" }}>
         {" "}
         <h3 style={{ fontSize: "30px" }}>My dashboard</h3>
       </Row>
-      <Row>{propertyDataCard ? propertyDataCard : ""}</Row>
-    </Container>
 
-    // "hello world"
+      <Row className="d-flex flex-row flex-wrap" style={{ display: "block" }}>
+        {propertyDataCard ? propertyDataCard : ""}
+      </Row>
+    </Container>
   );
 }
-
-//   return propertyData ? (
-//     <Container
-//       fluid
-//       className="d-flex flex-row flex-wrap"
-//       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
-//     >
-//       {propertyCards}
-//     </Container>
-//   ) : (
-//     ""
-//   );
 
 export default PropertyBoard;

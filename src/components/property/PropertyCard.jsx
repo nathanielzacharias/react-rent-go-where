@@ -21,7 +21,11 @@ function PropertyCard(props) {
     <Col className="d-flex flex-row flex-wrap" style={{ margin: "10px auto" }}>
       <Link to={`/api/v1/app/show_properties/${_id}`}>
         <Card style={{ width: "25rem", cursor: "pointer" }}>
-          <Card.Img variant="top" src={images[0]} />
+          <Card.Img
+            style={{ width: "400px", height: "300px" }}
+            variant="top"
+            src={images[0]}
+          />
 
           <Card.Body>
             <Card.Title>{address}</Card.Title>

@@ -5,8 +5,19 @@ import Button from "react-bootstrap/Button";
 import ControlledCarousel from "./PropertyImage";
 import jwt_decode from "jwt-decode";
 import { useParams } from "react-router-dom";
+import ToggleButton from "react-bootstrap/ToggleButton";
+import { toast } from "react-toastify";
 
 function PropertyDetail(props) {
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState("1");
+
+  const radios = [
+    { name: "Active", value: "1" },
+    { name: "Radio", value: "2" },
+    { name: "Radio", value: "3" },
+  ];
+
   const { _id, address, year, price, bedrooms, bathrooms, boards, images } =
     props.data;
 
@@ -26,14 +37,23 @@ function PropertyDetail(props) {
 
   console.log(formData);
 
-  // useEffect(() => {
-  //   const fetchApi = async () => {
-  //     const res = await fetch(`http://localhost:8000/api/v1/profile/update`);
-  //     const data = await res.json();
-  //   };
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await fetch(
+        `http://localhost:8000/api/v1/profile/${userObjId.data.objId}`
+      );
+      const data = await res.json();
+      const propertyArray = data.followedProperties;
+      console.log(propertyArray);
+      if (propertyArray.includes(propertyID)) {
+        setChecked(true);
+      } else {
+        setChecked(false);
+      }
+    };
 
-  //   fetchApi();
-  // }, []);
+    fetchApi();
+  }, []);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -47,23 +67,52 @@ function PropertyDetail(props) {
     fetchApi();
   }, []);
 
+  useEffect(() => {
+    console.log(checked);
+  }, [checked]);
+
   function addToFavourite(event) {
-    fetch(`http://localhost:8000/api/v1/profile/update`, {
-      method: "PATCH",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((response) => {
-        return response.json();
+    if (!checked) {
+      console.log(formData);
+      fetch(`http://localhost:8000/api/v1/profile/update`, {
+        method: "PATCH",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json",
+        },
       })
-      .then((jsonResponse) => {
-        console.log("successfully add to dashboard");
+        .then((response) => {
+          return response.json();
+        })
+        .then((jsonResponse) => {
+          console.log("successfully add to dashboard");
+          toast.success("Added to dashboard!");
+        })
+        .catch((err) => {
+          console.log("err message");
+        });
+    }
+
+    if (checked) {
+      console.log(formData);
+      fetch(`http://localhost:8000/api/v1/profile/deleteFromDashboard`, {
+        method: "PATCH",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json",
+        },
       })
-      .catch((err) => {
-        console.log("err message");
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((jsonResponse) => {
+          console.log("removed from dasboard");
+          toast.success("Removed from dashboard");
+        })
+        .catch((err) => {
+          console.log("err message");
+        });
+    }
   }
 
   return (
@@ -75,17 +124,23 @@ function PropertyDetail(props) {
           <ControlledCarousel image={images} />
         </div>
 
-        <Button
-          onClick={addToFavourite}
-          variant="primary"
+        <ToggleButton
+          className="mb-2"
+          id="toggle-check"
+          type="checkbox"
           style={{ width: "40px", margin: "20px 10px 0px 10px" }}
+          variant="outline-primary"
+          checked={checked}
+          value="1"
+          onClick={addToFavourite}
+          onChange={(e) => setChecked(e.currentTarget.checked)}
         >
           <i
             class="fa fa-solid fa-heart"
             aria-hidden="true"
             style={{ textAlign: "center" }}
           ></i>
-        </Button>
+        </ToggleButton>
 
         <h3 style={{ margin: "20px auto" }}>{price}</h3>
         <h4>
