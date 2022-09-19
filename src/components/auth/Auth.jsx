@@ -23,7 +23,7 @@ function Auth(props) {
   }
 
   // render props.component
-  return <props.component></props.component>;
+  return <props.component token={token}></props.component>;
 }
 
 export default Auth;
