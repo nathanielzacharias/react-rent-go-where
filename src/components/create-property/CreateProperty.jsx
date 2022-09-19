@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
-import { IKImage, IKContext, IKUpload } from "imagekitio-react";
+
 import ImageUpload from "./UploadImage";
 
 function CreateProperties() {
@@ -17,9 +17,15 @@ function CreateProperties() {
     price: "",
     bedrooms: "",
     bathrooms: "",
+    images: "",
     originalPoster: "",
   });
   const [userData, setUserData] = useState(null);
+  const [propertyImages, setPropertyImages] = useState([]);
+
+  useEffect(() => {
+    setPropertyImages([]);
+  }, []);
 
   const userId = jwt_decode(localStorage.getItem("user_token")).data.objId;
 
@@ -43,6 +49,7 @@ function CreateProperties() {
       // price: 'asdasd'
       ...formData,
       [e.target.name]: e.target.value,
+      images: propertyImages,
       originalPoster: userData.email,
     });
   }
@@ -134,7 +141,12 @@ function CreateProperties() {
         <Form.Control type="file" multiple />
       </Form.Group> */}
 
-      <ImageUpload />
+      <ImageUpload
+        // name="images"
+        // value={propertyImages}
+        setPropertyImages={setPropertyImages}
+        propertyImages={propertyImages}
+      />
 
       <Button variant="primary" type="submit">
         Submit

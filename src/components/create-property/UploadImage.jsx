@@ -11,8 +11,7 @@ const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
 const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
 const authenticationEndpoint = "http://localhost:8000/auth";
 
-function ImageUpload() {
-  const [propertyImages, setPropertyImages] = useState([]);
+function ImageUpload({ propertyImages, setPropertyImages }) {
   const [imagePath, setImagePath] = useState([]);
 
   const [imageNumber, setImageNumber] = useState(0);

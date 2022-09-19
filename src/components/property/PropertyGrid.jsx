@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropertyCard from "./PropertyCard";
-
-import styles from "./property.module.scss";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Spinner from "react-bootstrap/Spinner";
 
 function PropertyGrid(props) {
