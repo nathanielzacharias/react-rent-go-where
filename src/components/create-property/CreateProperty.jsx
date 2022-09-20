@@ -4,12 +4,14 @@ import Form from "react-bootstrap/Form";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import jwt_decode from "jwt-decode";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import MyPropertyCard from "./MyPropertyCard";
-
 import ImageUpload from "./UploadImage";
+
+
 
 function CreateProperties() {
   const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
