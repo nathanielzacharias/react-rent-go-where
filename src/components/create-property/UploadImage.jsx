@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
 import { IKContext, IKImage, IKUpload } from "imagekitio-react";
+
 // required parameter to fetch images
 const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
 // optional parameters (needed for client-side upload)
@@ -50,6 +51,7 @@ function ImageUpload({ propertyImages, setPropertyImages }) {
         authenticationEndpoint={authenticationEndpoint}
       >
         <p>Upload image</p>
+
         <IKUpload
           fileName="test-upload.png"
           onError={onError}
