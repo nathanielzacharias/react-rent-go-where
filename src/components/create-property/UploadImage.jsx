@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 import React, { useState } from "react";
 import { toast } from "react-toastify";

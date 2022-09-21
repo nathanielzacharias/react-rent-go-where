@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 import React, { useEffect, useState } from "react";
 import PropertyCard from "./PropertyCard";

@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
