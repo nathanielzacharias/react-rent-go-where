@@ -9,9 +9,12 @@ const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
 const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
 const authenticationEndpoint = "http://localhost:8000/auth";
 
-function ImageUpload({ propertyImages, setPropertyImages }) {
-  const [imagePath, setImagePath] = useState([]);
-
+function ImageUpload({
+  propertyImages,
+  setPropertyImages,
+  imagePath,
+  setImagePath,
+}) {
   const [imageNumber, setImageNumber] = useState(0);
   const onError = (err) => {
     console.log("Error", err);
@@ -37,6 +40,7 @@ function ImageUpload({ propertyImages, setPropertyImages }) {
   console.log(propertyImages);
   console.log(imageNumber);
   console.log(imagePath);
+
   return (
     <div
       className="App"

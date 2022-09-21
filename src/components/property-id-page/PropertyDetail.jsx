@@ -18,8 +18,17 @@ function PropertyDetail(props) {
     { name: "Radio", value: "3" },
   ];
 
-  const { _id, address, year, price, bedrooms, bathrooms, boards, images } =
-    props.data;
+  const {
+    _id,
+    address,
+    year,
+    price,
+    propSqf,
+    bedrooms,
+    bathrooms,
+    boards,
+    images,
+  } = props.data;
 
   const userObjId = jwt_decode(localStorage.getItem("user_token"));
 
@@ -143,6 +152,7 @@ function PropertyDetail(props) {
         </ToggleButton>
 
         <h3 style={{ margin: "20px auto" }}>{price}</h3>
+        <h4>{propSqf}</h4>
         <h4>
           <i
             class="fa fa-bed"
