@@ -4,7 +4,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 function MyPropertyCard(props) {
   const {
@@ -21,6 +22,21 @@ function MyPropertyCard(props) {
   } = props.data;
 
   const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    address: "",
+    year: "",
+    price: "",
+    bedrooms: "",
+    bathrooms: "",
+    images: "",
+    originalPoster: "",
+  });
+
+  function editPageRoute(event) {
+    const propertyID = event.target.name;
+    navigate(`/api/v1/app/edit_properties/${propertyID}`);
+  }
 
   function deleteProperty(event) {
     console.log(event.target.name);
@@ -61,7 +77,12 @@ function MyPropertyCard(props) {
 
         <ListGroup className="list-group-flush">
           <Card.Body>
-            <Button style={{ margin: "0px 12px" }} variant="link">
+            <Button
+              name={_id}
+              style={{ margin: "0px 12px" }}
+              variant="link"
+              onClick={editPageRoute}
+            >
               Edit
             </Button>
             <Button
