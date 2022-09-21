@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -40,7 +42,7 @@ function PropertyDetail(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/profile/${userObjId.data.objId}`
+        `${process.env.BASE_BACKEND_URL}/api/v1/profile/${userObjId.data.objId}`
       );
       const data = await res.json();
       const propertyArray = data.followedProperties;
@@ -57,7 +59,7 @@ function PropertyDetail(props) {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/update`);
+      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update`);
       setFormData({
         userId: userObjId.data.objId,
         followedProperties: propertyID,
@@ -74,7 +76,7 @@ function PropertyDetail(props) {
   function addToFavourite(event) {
     if (!checked) {
       console.log(formData);
-      fetch(`http://localhost:8000/api/v1/profile/update`, {
+      fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update`, {
         method: "PATCH",
         body: JSON.stringify(formData),
         headers: {
@@ -95,7 +97,7 @@ function PropertyDetail(props) {
 
     if (checked) {
       console.log(formData);
-      fetch(`http://localhost:8000/api/v1/profile/deleteFromDashboard`, {
+      fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/deleteFromDashboard`, {
         method: "PATCH",
         body: JSON.stringify(formData),
         headers: {

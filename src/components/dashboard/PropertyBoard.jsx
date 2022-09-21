@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PropertyCard from "../property/PropertyCard";
@@ -17,7 +19,7 @@ function PropertyBoard(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/board/show_properties/${userId}`
+        `${process.env.BASE_BACKEND_URL}/api/v1/board/show_properties/${userId}`
       );
       const data = await res.json();
       setPropertyBoard(data.followedProperties);
@@ -31,7 +33,7 @@ function PropertyBoard(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        "http://localhost:8000/api/v1/app/filter_properties",
+        `${process.env.BASE_BACKEND_URL}/api/v1/app/filter_properties`,
         {
           method: "POST",
           body: JSON.stringify({ propertyID: propertyBoard }),

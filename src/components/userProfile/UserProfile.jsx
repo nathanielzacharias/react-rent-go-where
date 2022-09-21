@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 // import React, {useEffect, useState} from 'react'
 // import { useParams, useNavigate } from 'react-router-dom'
 // import { toast } from 'react-toastify'
@@ -26,7 +28,7 @@ function UserProfile() {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/update`);
+      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update`);
       const data = await res.json();
       setUser(data);
       setFormData(data);
@@ -48,7 +50,7 @@ function UserProfile() {
 
     // processing
 
-    fetch(`http://localhost:8000/api/v1/profile/update`, {
+    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update`, {
       method: "PATCH",
       body: JSON.stringify(formData),
       headers: {

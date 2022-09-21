@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
@@ -51,7 +53,7 @@ function Login() {
 
         console.log(formData)
         
-        fetch(`http://localhost:8000/api/v1/auth/login`, {
+        fetch(`${process.env.BASE_BACKEND_URL}/api/v1/auth/login`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {

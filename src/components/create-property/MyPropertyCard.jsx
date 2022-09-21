@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -26,7 +28,7 @@ function MyPropertyCard(props) {
     console.log(event.target.name);
     const propertyID = event.target.name;
 
-    fetch(`http://localhost:8000/api/v1/app/delete_properties/${propertyID}`, {
+    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/app/delete_properties/${propertyID}`, {
       method: "DELETE",
       body: JSON.stringify({ propID: propertyID }),
       headers: {

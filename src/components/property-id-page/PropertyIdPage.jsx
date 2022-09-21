@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PropertyDetail from "./PropertyDetail";
@@ -9,7 +11,7 @@ function PropertyIdPage(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        "http://localhost:8000/api/v1/app/show_properties/"
+        `${process.env.BASE_BACKEND_URL}/api/v1/app/show_properties/`
       );
       const data = await res.json();
 

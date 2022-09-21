@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -49,7 +51,7 @@ function SignUp() {
       password: data.get("password"),
     });
 
-    fetch(`http://localhost:8000/api/v1/auth/register`, {
+    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name: `${data.get("firstName")} ${data.get("lastName")}`,

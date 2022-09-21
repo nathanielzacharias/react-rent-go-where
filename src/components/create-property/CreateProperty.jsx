@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -46,7 +48,7 @@ function CreateProperties() {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/app/filter_propertiesByUser`,
+        `${process.env.BASE_BACKEND_URL}/api/v1/app/filter_propertiesByUser`,
         {
           method: "POST",
           body: JSON.stringify({ originalPoster: userEmail }),
@@ -70,7 +72,7 @@ function CreateProperties() {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/${userId}`);
+      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/${userId}`);
       const data = await res.json();
       console.log(data);
       setUserData(data);
@@ -92,7 +94,7 @@ function CreateProperties() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/api/v1/app/create_properties`, {
+    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/app/create_properties`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import jwt_decode from "jwt-decode";
@@ -13,7 +15,7 @@ function UserDetail() {
   useEffect(() => {
     const fetchUserData = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/profile/${userObjId}`
+        `${process.env.BASE_BACKEND_URL}/api/v1/profile/${userObjId}`
       );
       const data = await res.json();
 

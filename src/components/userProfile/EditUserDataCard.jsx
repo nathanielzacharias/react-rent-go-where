@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
@@ -27,7 +29,7 @@ function EditUserDataCard(props) {
   console.log("formdata : ", formData);
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/`);
+      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/`);
       const data = await res.json();
       setUser(data);
       setFormData(data);
@@ -50,7 +52,7 @@ function EditUserDataCard(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/api/v1/profile/update/`, {
+    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update/`, {
       method: "PATCH",
       body: JSON.stringify(formData),
       headers: {
