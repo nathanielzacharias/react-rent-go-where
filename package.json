@@ -1,6 +1,7 @@
 {
   "name": "react-rent-go-where",
   "version": "0.1.0",
+  "homepage": "https://Kendrick2809.github.io/React-Rent-Go-Where",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -33,6 +34,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -57,6 +60,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "netlify-cli": "^11.8.2"
   }
 }
