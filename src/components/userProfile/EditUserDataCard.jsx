@@ -27,7 +27,9 @@ function EditUserDataCard(props) {
   console.log("formdata : ", formData);
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`http://localhost:8000/api/v1/profile/`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/`
+      );
       const data = await res.json();
       setUser(data);
       setFormData(data);
@@ -50,7 +52,7 @@ function EditUserDataCard(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:8000/api/v1/profile/update/`, {
+    fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/update/`, {
       method: "PATCH",
       body: JSON.stringify(formData),
       headers: {
@@ -73,7 +75,6 @@ function EditUserDataCard(props) {
   return (
     <div>
       <Form onSubmit={handleFormSubmit} style={{ margin: "10px 400px" }}>
-
         <label htmlFor="name" className="form-label">
           Current Name: {name}
         </label>
@@ -87,7 +88,7 @@ function EditUserDataCard(props) {
         />
 
         <label htmlFor="gender" className="form-label">
-        Current Gender: {gender}
+          Current Gender: {gender}
         </label>
         <input
           type="text"
@@ -99,7 +100,7 @@ function EditUserDataCard(props) {
         />
 
         <label htmlFor="ethinicity" className="form-label">
-        Current Ethinicity: {ethinicity}
+          Current Ethinicity: {ethinicity}
         </label>
         <input
           type="text"

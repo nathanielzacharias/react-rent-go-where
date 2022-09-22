@@ -16,7 +16,7 @@ function PropertyGrid(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        "http://localhost:8000/api/v1/app/show_properties"
+        `https://pleasant-boa-gear.cyclic.app/api/v1/app/show_properties`
       );
       const data = await res.json();
 

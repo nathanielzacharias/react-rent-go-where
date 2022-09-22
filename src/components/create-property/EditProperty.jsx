@@ -41,7 +41,7 @@ function EditProperty() {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/app/show_properties/${propertyID}`
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/show_properties/${propertyID}`
       );
 
       const data = await res.json();
@@ -71,13 +71,16 @@ function EditProperty() {
     event.preventDefault();
     console.log("event submitted");
 
-    fetch(`http://localhost:8000/api/v1/app/edit_properties/${propertyID}`, {
-      method: "PATCH",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
+    fetch(
+      `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/edit_properties/${propertyID}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         return response.json();
       })
