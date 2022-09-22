@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-rent-go-where/static/css/main.85dba910.css",
-    "main.js": "/react-rent-go-where/static/js/main.934624df.js",
+    "main.js": "/react-rent-go-where/static/js/main.d5205e05.js",
     "static/media/fa-solid-900.svg": "/react-rent-go-where/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
     "static/media/fa-brands-400.svg": "/react-rent-go-where/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/fa-solid-900.eot": "/react-rent-go-where/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
@@ -19,10 +19,10 @@
     "static/media/fa-regular-400.woff2": "/react-rent-go-where/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "index.html": "/react-rent-go-where/index.html",
     "main.85dba910.css.map": "/react-rent-go-where/static/css/main.85dba910.css.map",
-    "main.934624df.js.map": "/react-rent-go-where/static/js/main.934624df.js.map"
+    "main.d5205e05.js.map": "/react-rent-go-where/static/js/main.d5205e05.js.map"
   },
   "entrypoints": [
     "static/css/main.85dba910.css",
-    "static/js/main.934624df.js"
+    "static/js/main.d5205e05.js"
   ]
 }
