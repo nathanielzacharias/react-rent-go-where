@@ -13,39 +13,26 @@ import { Slider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 
-const bedroomsMenu = (
-  <Menu
-    items={[
-      {
-        label: '1 bedroom',
-        key: '1',
-      },
-      {
-        label: '2 bedrooms',
-        key: '2',
-      },
-      {
-        label: '3 bedrooms',
-        key: '3',
-      },
-      {
-        label: '4 bedrooms',
-        key: '4',
-      },
-      {
-        label: '5 bedrooms',
-        key: '5',
-      },
-      {
-        label: '6 or more bedrooms',
-        key: '6',
-      },
-    ]}
-  />
-);
 
-function Sidebar() {
+function Sidebar(props) {
 
+  function handleClick(item) {
+    // console.log("from Sidebar, item.key is: ", item.key)
+    props.setNumBedrooms(item.key)
+  }
+  
+  const bedroomsMenu = (
+    <Menu onClick={handleClick}>
+      <Menu.Item key='1'>1 bedroom</Menu.Item>
+      <Menu.Item key='2'>2 bedrooms</Menu.Item>
+      <Menu.Item key='3'>3 bedrooms</Menu.Item>
+      <Menu.Item key='4'>4 bedrooms</Menu.Item>
+      <Menu.Item key='5'>5 bedrooms</Menu.Item>
+      {/* <Menu.Item key='6'>6 or more bedrooms</Menu.Item> */}
+      <Menu.Item key='showAll'>No filter</Menu.Item>
+    </Menu>
+  
+  );
   const onBudgetSliderAfterChange = (value) => {
     console.log('onBudgetSliderAfterChange: ', value);
   };
@@ -54,13 +41,13 @@ function Sidebar() {
       <div style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
         <CDBSidebar textColor="#fff" backgroundColor="RGB(33 37 41)">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <div>Filter</div>
+          <div>Filters</div>
               
           </CDBSidebarHeader>
   
           <CDBSidebarFooter style={{ textAlign: 'left', padding: '20px 30px'}}>
 
-            <div className="sidebar-btn-wrapper">
+            {/* <div className="sidebar-btn-wrapper">
               <p>
                 Location
               </p>
@@ -78,7 +65,7 @@ function Sidebar() {
                 defaultValue={[600, 1000]}
                 onAfterChange={onBudgetSliderAfterChange}
               />
-            </div>
+            </div> */}
 
             <div className="sidebar-btn-wrapper">
               <Dropdown.Button type="secondary"  overlay={bedroomsMenu}>

@@ -1,65 +1,71 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import PropertyCard from "../property/PropertyCard";
 import Container from "react-bootstrap/Container";
+import { Row } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
+import CloseButton from "react-bootstrap/CloseButton";
 
 function PropertyBoard(props) {
   const [propertyBoard, setPropertyBoard] = useState([]);
+  const [propertyData, setPropertyData] = useState(null);
+  const [propertyDataCard, setPropertyDataCard] = useState(null);
+  const params = useParams();
   const userId = jwt_decode(localStorage.getItem("user_token")).data.objId;
   console.log(userId);
 
-  //   useEffect(() => {
-  //     const fetchApi = async () => {
-  //       const res = await fetch("http://localhost:8000/api/v1/profile");
-  //       const data = await res.json();
-  //       console.log(data);
-  //       //   setPropertyBoard(followedProperties);
-  //     };
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/board/show_properties/${userId}`
+      );
+      const data = await res.json();
+      setPropertyBoard(data.followedProperties);
+      console.log(res);
+    };
+    fetchApi();
+  }, []);
 
-  //     fetchApi();
-  //   }, []);
+  console.log(propertyBoard);
 
-  const myHeaders = new Headers();
-  myHeaders.append("Y9UUJuV4uQ5fn8Ocs8OeZ7NJsDRF5mRu6wsti1hz", "");
-  myHeaders.append("Content-Type", "application/json");
+  useEffect(() => {
+    const fetchApi = async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/filter_properties`,
+        {
+          method: "POST",
+          body: JSON.stringify({ propertyID: propertyBoard }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+      console.log("filtering");
+      setPropertyData(data);
 
-  fetch(`http://localhost:8000/api/v1/board/show_properties`, {
-    method: "POST",
-    body: JSON.stringify({ userId: userId }),
-    headers: myHeaders,
-    redirect: "follow",
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((jsonResponse) => {
-      console.log(jsonResponse);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      const propertyCards = data.map((property) => (
+        <PropertyCard key={property._id} data={property} />
+      ));
 
-  //   const data = await res.json();
+      setPropertyDataCard(propertyCards);
+    };
 
-  //   const propertyBoardData = data.filter((data) => data._id === userId);
-
-  //   const followedProperties = propertyBoardData.followedProperties;
-  //   console.log(propertyBoard);
-
-  //   const propertyCards = properties.map((property) => (
-  //     <PropertyCard key={property._id} data={property} />
-  //   ));
+    fetchApi();
+  }, [propertyBoard]);
 
   return (
-    // <Container
-    //   fluid
-    //   className="d-flex flex-row flex-wrap"
-    //   style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
-    // >
-    //   {propertyCards}
-    // </Container>
+    <Container fluid style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}>
+      <Row style={{ alignContent: "center" }}>
+        {" "}
+        <h3 style={{ fontSize: "30px" }}>My dashboard</h3>
+      </Row>
 
-    "hello world"
+      <Row className="d-flex flex-row flex-wrap" style={{ display: "block" }}>
+        {propertyDataCard ? propertyDataCard : ""}
+      </Row>
+    </Container>
   );
 }
 

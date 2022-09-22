@@ -8,11 +8,12 @@ function PropertyCard(props) {
     boards,
     _id,
     address,
-    rooms,
+    bedrooms,
     year,
     price,
     bathrooms,
-    sqf_list,
+    originalPoster,
+    propSqf,
     images,
   } = props.data;
 
@@ -20,18 +21,46 @@ function PropertyCard(props) {
     <Col className="d-flex flex-row flex-wrap" style={{ margin: "10px auto" }}>
       <Link to={`/api/v1/app/show_properties/${_id}`}>
         <Card style={{ width: "25rem", cursor: "pointer" }}>
-          <Card.Img variant="top" src={images[0]} />
+          <Card.Img
+            style={{ width: "400px", height: "300px" }}
+            variant="top"
+            src={images[0]}
+          />
 
           <Card.Body>
             <Card.Title>{address}</Card.Title>
           </Card.Body>
 
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>{rooms}</ListGroup.Item>
-            <ListGroup.Item>{year}</ListGroup.Item>
-            <ListGroup.Item>{price}</ListGroup.Item>
-            <ListGroup.Item>{bathrooms}</ListGroup.Item>
-            <ListGroup.Item>{sqf_list}</ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "15px" }}>{year}</ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "25px", fontWeight: "bold" }}>
+              {price}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "15px", fontWeight: "bold" }}>
+              {propSqf}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bed"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
+              {bedrooms}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "20px" }}>
+              {" "}
+              <i
+                class="fa fa-bath"
+                aria-hidden="true"
+                style={{ margin: "5px 10px 0px 0px" }}
+              ></i>
+              {bathrooms}
+            </ListGroup.Item>
+            <ListGroup.Item style={{ fontSize: "15px" }}>
+              Listed by{" "}
+              <span style={{ fontWeight: "bold" }}>{originalPoster}</span>
+            </ListGroup.Item>
           </ListGroup>
         </Card>
       </Link>
