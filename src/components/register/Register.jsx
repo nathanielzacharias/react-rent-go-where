@@ -49,7 +49,7 @@ function SignUp() {
       password: data.get("password"),
     });
 
-    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/auth/register`, {
+    fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/auth/register`, {
       method: "POST",
       body: JSON.stringify({
         name: `${data.get("firstName")} ${data.get("lastName")}`,

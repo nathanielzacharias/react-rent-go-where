@@ -1,7 +1,7 @@
 {
   "name": "react-rent-go-where",
   "version": "0.1.0",
-  "homepage": "https://Kendrick2809.github.io/React-Rent-Go-Where/",
+  "homepage": "https://Kendrick2809.github.io/React-Rent-Go-Where",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
