@@ -15,7 +15,7 @@ function DeleteUserComponent(props) {
 
     const removeUser = async (id) => {
         try {
-          const res = await axios.delete(`${process.env.BASE_BACKEND_URL}/api/v1/profile/${id}`)
+          const res = await axios.delete(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/${id}`)
           console.log('Item successfully deleted. response is: ', res)
         
           localStorage.removeItem('user_token')

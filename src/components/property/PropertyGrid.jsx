@@ -18,7 +18,7 @@ function PropertyGrid(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `${process.env.BASE_BACKEND_URL}/api/v1/app/show_properties`
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/show_properties`
       );
       const data = await res.json();
 

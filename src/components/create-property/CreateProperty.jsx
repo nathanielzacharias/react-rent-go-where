@@ -48,7 +48,7 @@ function CreateProperties() {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `${process.env.BASE_BACKEND_URL}/api/v1/app/filter_propertiesByUser`,
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/filter_propertiesByUser`,
         {
           method: "POST",
           body: JSON.stringify({ originalPoster: userEmail }),
@@ -72,7 +72,7 @@ function CreateProperties() {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/${userId}`);
+      const res = await fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/${userId}`);
       const data = await res.json();
       console.log(data);
       setUserData(data);
@@ -94,7 +94,7 @@ function CreateProperties() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/app/create_properties`, {
+    fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/create_properties`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {

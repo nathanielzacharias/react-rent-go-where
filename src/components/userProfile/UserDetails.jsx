@@ -15,7 +15,7 @@ function UserDetail() {
   useEffect(() => {
     const fetchUserData = async () => {
       const res = await fetch(
-        `${process.env.BASE_BACKEND_URL}/api/v1/profile/${userObjId}`
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/${userObjId}`
       );
       const data = await res.json();
 

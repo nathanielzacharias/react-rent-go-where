@@ -28,7 +28,7 @@ function MyPropertyCard(props) {
     console.log(event.target.name);
     const propertyID = event.target.name;
 
-    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/app/delete_properties/${propertyID}`, {
+    fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/delete_properties/${propertyID}`, {
       method: "DELETE",
       body: JSON.stringify({ propID: propertyID }),
       headers: {

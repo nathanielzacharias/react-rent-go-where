@@ -29,7 +29,7 @@ function EditUserDataCard(props) {
   console.log("formdata : ", formData);
   useEffect(() => {
     const fetchApi = async () => {
-      const res = await fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/`);
+      const res = await fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/`);
       const data = await res.json();
       setUser(data);
       setFormData(data);
@@ -52,7 +52,7 @@ function EditUserDataCard(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    fetch(`${process.env.BASE_BACKEND_URL}/api/v1/profile/update/`, {
+    fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/update/`, {
       method: "PATCH",
       body: JSON.stringify(formData),
       headers: {

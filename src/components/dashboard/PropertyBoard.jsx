@@ -19,7 +19,7 @@ function PropertyBoard(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `${process.env.BASE_BACKEND_URL}/api/v1/board/show_properties/${userId}`
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/board/show_properties/${userId}`
       );
       const data = await res.json();
       setPropertyBoard(data.followedProperties);
@@ -33,7 +33,7 @@ function PropertyBoard(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        `${process.env.BASE_BACKEND_URL}/api/v1/app/filter_properties`,
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/filter_properties`,
         {
           method: "POST",
           body: JSON.stringify({ propertyID: propertyBoard }),

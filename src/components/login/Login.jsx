@@ -53,7 +53,7 @@ function Login() {
 
         console.log(formData)
         
-        fetch(`${process.env.BASE_BACKEND_URL}/api/v1/auth/login`, {
+        fetch(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/auth/login`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {

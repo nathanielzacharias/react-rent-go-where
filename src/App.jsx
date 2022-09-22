@@ -32,11 +32,15 @@ const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
 
 // optional parameters (needed for client-side upload)
 const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
-const authenticationEndpoint = `${process.env.BASE_BACKEND_URL}/auth`;
+const authenticationEndpoint = `${process.env.REACT_APP_BASE_BACKEND_URL}/auth`;
 
 function App() {
   // const [login, setLogin] = useState(0);
   const [numBedrooms, setNumBedrooms] = useState("showAll");
+
+  console.log(process.env.REACT_APP_BASE_BACKEND_URL)
+  
+  // console.log(process.env.REACT_APP_API)
 
   return (
     <div>
@@ -52,30 +56,32 @@ function App() {
 
           <Routes>
             {/* <Route path ="/user/:userID/delete" element={<Auth component={UserDetails} />} /> */}
-            <Route path ="/api/v1/profile" element={<Auth component={UserDetails} />} />
+            <Route path ="/react-rent-go-where/api/v1/profile" element={<Auth component={UserDetails} />} />
 
-            <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
+            <Route path="/react-rent-go-where/" element={<Homepage numBedrooms={numBedrooms} />} />
 
             <Route
-              path="/api/v1/auth/login"
+              path="/react-rent-go-where/api/v1/auth/login"
               element={<Guest component={Login} />}
+
+              
             />
             {/* <Route
               path="/api/v1/profile"
               element={<Auth component={UserProfile} />}
             /> */}
-            <Route path="/api/v1/auth/register" element={<SignUp />} />
-            <Route path="/user/:userID" element={<Homepage />} />
+            <Route path="/react-rent-go-where/api/v1/auth/register" element={<SignUp />} />
+            <Route path="/react-rent-go-where/user/:userID" element={<Homepage />} />
             <Route
-              path="/api/v1/app/show_properties/:propID"
+              path="/react-rent-go-where/api/v1/app/show_properties/:propID"
               element={<PropertyIdPage />}
             />
             <Route
-              path="/api/v1/app/create_properties"
+              path="/react-rent-go-where/api/v1/app/create_properties"
               element={<CreateProperties />}
             />
             <Route
-              path="/api/v1/board/show_properties/:userID"
+              path="/react-rent-go-where/api/v1/board/show_properties/:userID"
               element={<PropertyBoard />}
             />
           </Routes>
