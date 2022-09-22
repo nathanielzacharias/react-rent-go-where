@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Rent-Go-Where
+A property guru inspired website that aims to help people look for places to rent and also look for tenants to share the rental unit with.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to demo site
 
-## Available Scripts
+## Technologies used
+MERN (MongoDB, Express JS, React JS, Node JS) stack project with Mongodb as the database, Express JS with MVC structure, React JS for the front end and Node JS for running the runtime enviroment.
+Image uploading is taken cared by imagekit.io, Material UI components were used for sign up and log in page.
 
-In the project directory, you can run:
+## User Stories
+We put ourselves in the shoes of end users looking for a property to rent; these are just some thoughts we as ourselves when we think of what we need to do next.
+* As a user, I want to see what properties are available before I sign up an account.
+* As a user, I want the sign up process to be easy and not too many info to fill.
+* As a user, I want the page to be redirected to log in after I signed up as a user.
+* As a user, I want to filter the apartment by rooms. Cos if you are broke like YX, 1 room is all you can afford but if hes dreaming, he filter by 5 rooms instead
+* As a user, I want to favorite properties I have shortlisted to keep an eye on it.
+* As a user, I want to make use of the site to list property to rent it out
+* As a user, I want photos uploaded as a picture when I list property so people can see how awesome it is renovated
+* As a user, I want to be able to edit the property details if i realise details are wrong
+* As a user , I want to delete the property entry if I dont want it listed anymore
 
-### `npm start`
+Below are the userstories we started out going for but sadly due to time constraints we arent able to execute it:
+* As a user, I want to be able to look for other user to rent the property with.
+* As a user, I want to be able to leave a comment on the property so other like minded tenants can communicate with me to share rental cost.
+* As a user, I want to be able to link the location in a map.
+* As a user, I want to be able to make transaction through the platform.
+* As a user, I want to be able to give or read testimonial between users and properties.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Figma Flowchart
+![image](https://user-images.githubusercontent.com/98818306/191672708-5476de82-2233-4e3d-8277-3c633d2733f3.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Database Schema
+![image](https://user-images.githubusercontent.com/98818306/191673177-a9edb2cc-8db9-4946-a4bf-4711b0fbfa10.png)
 
-### `npm test`
+## Difficulties
+- Conflicts when merging repository 
+- Difficulty understanding documentation
+- Time constraint on finishing our user stories.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Wins
+- Getting uncomfortable doing a project with a new framework but quickly finding comfort in an uncomfortable zone(again).
+- Gets experience working in a group, understanding each other differences and commitments in life and how to manage expectations so we do not be too hard on each other.
+- Noticeable difference with volume of features produced compared to project 2.
+- troubleshotting the current stack gets easier along the way
