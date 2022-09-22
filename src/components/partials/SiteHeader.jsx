@@ -82,9 +82,7 @@ function SiteHeader() {
 
                 <Dropdown.Menu>
                   <Dropdown.Item>
-                    <Link to="/React-Rent-Go-Where/#/api/v1/profile">
-                      Profile
-                    </Link>
+                    <Link to="/api/v1/profile">Profile</Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
                     <a onClick={logoutHandler}>
@@ -96,14 +94,10 @@ function SiteHeader() {
             ) : (
               <>
                 <li className="nav-link">
-                  <Link to="/React-Rent-Go-Where/#/api/v1/auth/register">
-                    Register
-                  </Link>
+                  <Link to="/api/v1/auth/register">Register</Link>
                 </li>
                 <li className="nav-link">
-                  <Link to="/React-Rent-Go-Where/#/api/v1/auth/login">
-                    Login
-                  </Link>
+                  <Link to="/api/v1/auth/login">Login</Link>
                 </li>
               </>
             )}
