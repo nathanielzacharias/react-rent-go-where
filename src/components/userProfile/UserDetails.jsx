@@ -13,7 +13,7 @@ function UserDetail() {
   useEffect(() => {
     const fetchUserData = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/v1/profile/${userObjId}`
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/profile/${userObjId}`
       );
       const data = await res.json();
 
@@ -26,7 +26,6 @@ function UserDetail() {
 
   // console.log('userdata :', userData)
 
-
   // const EditUserDataCard = userData.map((durian) => (<EditUserDataCard key={durian._id} data={durian} />))
 
   return (
@@ -35,7 +34,6 @@ function UserDetail() {
       className="d-flex flex-row flex-wrap"
       style={{ margin: "5px 5px 5px 5px", padding: "5px 5px" }}
     >
-
       {<EditUserDataCard data={userData} />}
     </Container>
   );

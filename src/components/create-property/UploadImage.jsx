@@ -7,7 +7,7 @@ import { IKContext, IKImage, IKUpload } from "imagekitio-react";
 const urlEndpoint = "https://ik.imagekit.io/vsoncvhkm/";
 // optional parameters (needed for client-side upload)
 const publicKey = "public_VW2hCnJrSlQCWKZA9Xk7NnP3oxo=";
-const authenticationEndpoint = "http://localhost:8000/auth";
+const authenticationEndpoint = `${process.env.BASE_BACKEND_URL}/auth`;
 
 function ImageUpload({
   propertyImages,

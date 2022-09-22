@@ -9,7 +9,7 @@ function PropertyIdPage(props) {
   useEffect(() => {
     const fetchApi = async () => {
       const res = await fetch(
-        "http://localhost:8000/api/v1/app/show_properties/"
+        `${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/app/show_properties/`
       );
       const data = await res.json();
 
