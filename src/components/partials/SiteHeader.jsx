@@ -40,7 +40,7 @@ function SiteHeader() {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href={`/api/v1/board/show_properties/${userId}`}
+                  href={`/react-rent-go-where/api/v1/board/show_properties/${userId}`}
                 >
                   Favourite
                 </a>
@@ -63,7 +63,7 @@ function SiteHeader() {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href={`/api/v1/app/create_properties`}
+                  href={`/react-rent-go-where/api/v1/app/create_properties`}
                 >
                   Add properties
                 </a>
@@ -82,7 +82,7 @@ function SiteHeader() {
 
                 <Dropdown.Menu>
                   <Dropdown.Item>
-                    <Link to="/api/v1/profile">Profile</Link>
+                    <Link to="/react-rent-go-where/api/v1/profile">Profile</Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
                     <a onClick={logoutHandler}>
@@ -94,10 +94,10 @@ function SiteHeader() {
             ) : (
               <>
                 <li className="nav-link">
-                  <Link to="/api/v1/auth/register">Register</Link>
+                  <Link to="/react-rent-go-where/api/v1/auth/register">Register</Link>
                 </li>
                 <li className="nav-link">
-                  <Link to="/api/v1/auth/login">Login</Link>
+                  <Link to="/react-rent-go-where/api/v1/auth/login">Login</Link>
                 </li>
               </>
             )}
