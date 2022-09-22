@@ -63,7 +63,7 @@ function SiteHeader() {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href={`/api/v1/app/create_properties`}
+                  href={`/React-Rent-Go-Where/#/api/v1/app/create_properties`}
                 >
                   Add properties
                 </a>
