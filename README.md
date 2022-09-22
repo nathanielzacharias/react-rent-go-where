@@ -4,7 +4,7 @@ A property guru inspired website that aims to help people look for places to ren
 ## Link to demo site
 
 ## Technologies used
-MERN stack project with Mongodb as the database, Express JS with MVC structure, ReactJS for the front end and nodejs for running the runtime enviroment.
+MERN (MongoDB, Express JS, React JS, Node JS) stack project with Mongodb as the database, Express JS with MVC structure, React JS for the front end and Node JS for running the runtime enviroment.
 Image uploading is taken cared by imagekit.io, Material UI components were used for sign up and log in page.
 
 ## User Stories
@@ -27,7 +27,6 @@ Below are the userstories we started out going for but sadly due to time constra
 * As a user, I want to be able to give or read testimonial between users and properties.
 
 ## Figma Flowchart
-https://www.figma.com/file/gBRZIy59wvcYa6xchIOcgt/FigJam-Basics?node-id=0%3A1
 ![image](https://user-images.githubusercontent.com/98818306/191672708-5476de82-2233-4e3d-8277-3c633d2733f3.png)
 
 ## Database Schema
